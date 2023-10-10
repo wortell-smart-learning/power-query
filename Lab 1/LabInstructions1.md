@@ -14,7 +14,7 @@ In dit eerste lab importeer je de eerste data als query en passen we eenvoudige 
 
 2. Selecteer onder de tab **Home** het dropdown menu **Get Data** en selecteer **Excel**. Als alternatief kun je op **Get Data** klikken. De **Get Data** dialoog opent, waarna je alle beschikbare brontypen (of connectoren) kunt bekijken. Je kunt de zoekbalk gebruiken om gericht te zoeken. Als je klaar bent, selecteer dan Excel.
 
-3. In de **Import Data** dialoog die opent, navigeer naar **...** en selecteer workbook **...**. Druk op Enter of selecteer **Open** om de dialoog te sluiten.
+3. In de **Import Data** dialoog die opent, navigeer naar **...** en selecteer workbook **L1O1.xlsx**. Druk op Enter of selecteer **Open** om de dialoog te sluiten.
 
 4. Selecteer in het **Navigator** scherm dat opent de tabel die je wil importeren. Deze dialoog opent altijd als je verbinding maakt met een databron die meerdere tabellen bevat. Als je verbinding maakt met relationele databases, zoals Azure SQL database, bevat het linkerpaneel meer opties. Het grootste deel van de user interface ziet er echter hetzelfde uit. 
 
