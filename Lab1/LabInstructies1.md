@@ -70,12 +70,12 @@ Je hebt nu de originele brontabel geïmporteerd en getransformeerd. Het rapport 
 
 ## Table of Contents
 
-1. [Een eerste blik op Power Query](../Lab1/LabInstructions1.md)
-2. [](../Lab2/LabInstructions2.md)
-3. [](../Lab3/LabInstructions3.md)
-4. [](../Lab4/LabInstructions4.md)
-5. [](../Lab5/LabInstructions5.md)
-6. [](../Lab6/LabInstructions6.md)
-7. [](../Lab7/LabInstructions7.md)
-8. [](../Lab8/LabInstructions8.md)
-9. [](../Lab9/LabInstructions9.md)
+1. [Een eerste blik op Power Query](../Lab1/LabInstructies1.md)
+2. [Datapreparatie uitdagingen](../Lab2/LabInstructies2.md)
+3. [](../Lab3/LabInstructies3.md)
+4. [](../Lab4/LabInstructies4.md)
+5. [](../Lab5/LabInstructies5.md)
+6. [](../Lab6/LabInstructies6.md)
+7. [](../Lab7/LabInstructies7.md)
+8. [](../Lab8/LabInstructies8.md)
+9. [](../Lab9/LabInstructies9.md)
