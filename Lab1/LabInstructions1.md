@@ -14,7 +14,7 @@ In dit eerste lab importeer je de eerste data als query en passen we eenvoudige 
 
 2. Selecteer onder de tab **Home** het dropdown menu **Get Data** en selecteer **Excel**. Als alternatief kun je op **Get Data** klikken. De **Get Data** dialoog opent, waarna je alle beschikbare brontypen (of connectoren) kunt bekijken. Je kunt de zoekbalk gebruiken om gericht te zoeken. Als je klaar bent, selecteer dan Excel.
 
-3. In de **Import Data** dialoog die opent, navigeer naar **...** en selecteer workbook **L1O1.xlsx**. Druk op Enter of selecteer **Open** om de dialoog te sluiten.
+3. In de **Import Data** dialoog die opent, navigeer naar **Lab1** en selecteer workbook **L1O1.xlsx**. Druk op Enter of selecteer **Open** om de dialoog te sluiten.
 
 4. Selecteer in het **Navigator** scherm dat opent de tabel die je wil importeren. Deze dialoog opent altijd als je verbinding maakt met een databron die meerdere tabellen bevat. Als je verbinding maakt met relationele databases, zoals Azure SQL database, bevat het linkerpaneel meer opties. Het grootste deel van de user interface ziet er echter hetzelfde uit. 
 
@@ -57,7 +57,7 @@ In dit eerste lab importeer je de eerste data als query en passen we eenvoudige 
 
 ## Opdracht 3 - De data bewerken
 
-1. Open het bronbestand **...** en doe wat aanpassingen. Ververs, nadat je de file hebt opgeslagen, jouw rapport en kijk hoe jouw query omgaat met de gewijzigde data. Om de query te verversen, selecteer **Refresh** in de **Home** tab. Dit is de kern van automatisering en een tijdsbesparend element in Power Query. Je kunt de data eenmalig prepareren en dan een refresh starten om de data automatisch te prepareren op elk moment.
+1. Open het bronbestand **L1O1.xlsx** en doe wat aanpassingen. Ververs, nadat je de file hebt opgeslagen, jouw rapport en kijk hoe jouw query omgaat met de gewijzigde data. Om de query te verversen, selecteer **Refresh** in de **Home** tab. Dit is de kern van automatisering en een tijdsbesparend element in Power Query. Je kunt de data eenmalig prepareren en dan een refresh starten om de data automatisch te prepareren op elk moment.
 
 > Je kunt de verversing van de data ook periodiek inplannen als je gebruik maakt van de Power BI service. Lees er meer over in de [documentatie](https://learn.microsoft.com/en-US/power-bi/connect-data/refresh-scheduled-refresh).
 
