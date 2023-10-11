@@ -127,7 +127,123 @@ In stap 1 t/m 4 gebruik je de features voor foutafhandeling in Power Query. Vana
 
 15. Dubbelklik op de stap **Column from Examples** in het *Applied Steps* paneel om de afleidingscondities te reviewen. Sluit dan de dialoog.
 
-16. Bekijk de *formula bar* voor de gegenereerde M code. 
+16. Bekijk de *formula bar* voor de gegenereerde M code.
+
+## Opdracht 5 - Informatie halen uit tekstkolommen
+
+In een voorgaande opdracht haalde je informatie uit een samengestelde kolom door gebruik te maken van de **Split Column by Delimiter** transformatie. 
+In deze opdracht ga je een veel voorkomende uitdaging uitwerken: betekenisvolle data halen uit ongestructureerde tekst. 
+Deze uitdaging kan eenvoudig  zijn als je data redelijk consistent is, maar je hebt een breder arsenaal aan technieken nodig voor inconsistente data.
+
+In deze opdracht willen we de hyperlinks uit een dataset van Facebook posts extraheren. Sommige hyperlinks zijn makkelijk te herkennen doordat ze beginnen met "http://", maar er zijn ook veel afwijkende waarden die niet eenvoudig te addresseren zijn.
+
+1. Start een nieuw Power BI rapport en lees workbook L2O2.xlsx uit Lab 2 in als Excel workbook en start de Power Query Editor.
+
+2. Selecteer de kolom **Message**, dupliceer het en hernoem de nieuwe kolom tot "Hyperlink" (zonder quotes).
+
+> Om de hyperlink uit de nieuwe kolom te extraheren kunnen we de prefix "http://" gebruiken als scheidingsteken en de kolom splitsen. 
+
+3. Selecteer de **Hyperlink** kolmo, open op de **Transform** tab het **Split Column** dropdown menu en selecteer **By Delimiter**.
+
+4. Vul onder **Custom** de waarde "http://" (zonder quotes) in. Selecteer de **Left-most delimiter** en klik op OK.
+
+> De kolom **Hyperlink** is nu gesplitst in tweeën, maar nog niet alle hyperlinks worden herkend. Hoe kun je hyperlinks extraheren die beginnen met "https://" of "www."?
+
+5. Kies in het *Applied Steps* paneel de stap **Split Column by Delimiter**.
+
+> In de *Formula bar* zie je de M code, die gebruik maakt van de functie **SplitTextByEachDelimiter**. Om meerdere scheidingstekens te kunnen gebruiken heb je de functie **SplitTextByAnyDelimiter** nodig.
+
+6. Zoek in de formule naar "SplitTextBy**Each**Delimiter({"http://"}" en wijzig het naar "SplitTextBy**Any**Delimiter({"http://","https://","www."}"
+
+> De kolom **Hyperlink.2** bevat nu meer herkende hyperlinks. Er zijn echter resultaten met tekst achter de hyperlink, zoals rij 15. 
+> Om deze tekst te verwijderen mag je aannemen dat een hyperlink eindigd met een spatie en dit de kolom met dat scheidingsteken splitsen.
+
+7. Ga naar de laatste stap in het *Applied Steps* paneel. Selecteer de kolom **Hyperlink.2** en splits het met de spatie als scheidingsteken op de **Left-most delimiter**.
+
+8. Verwijder kolom **Hyperlink.2.2**.
+
+> Bekijk de resultaten in de kolom **Hyperlink.2.1**. Zoek de eerste rij met een lege waarde, waarin de hyperlink dus nog niet goed wordt herkend. 
+> Het blijkt de hyperlink "aka.ms/containersebook" te zijn. Gebruiken we echter "aka.ms" als scheidingsteken, dan verliezen we waardevolle informatie in de hyperlink.
+> Bij "www." verloren we ook informatie, maar dat is een ingecalculeerd risico, omdat de hyperlinks "www.microsoft.com" en "microsoft.com" naar dezelfde website verwijzen.
+> Je moet een manier vinden om te splitsen op "aka.ms" en dan het domein te herstellen, maar alleen voor de relevante rijen.
+> Binnenkort leer je dat te doen met een **Conditional Column**. Maar eerst voeg je "aka.ms" toe aan de lijst met delimiters.
+
+9. Selecteer opnieuw de stap **Split Column by Delimiters** die je in deze opdracht in stap 6 hebt aangepast. Voeg "aka.ms" toe aan de lijst met scheidingstekens. 
+
+> Het resultaat voor rij 29 is nu de hyperlink "/containersebook". In de volgende stappen voeg je een **Conditional Column** toe die het domein hersteld als de waarde van de hyperlink begint met "/".
+
+10. Ga terug naar de laatste stap in het *Applied Steps* paneel. Verwijder kolom **Hyperlink.1** en hernoem kolom **Hyperlink.2.1** naar **Hyperlink Old**.
+
+11. Selecteer op de **Add Column** tab **Conditional Column**. Vul de dialoog die opent als volgt:
+
+ ![Conditional column invoer](./img/Lab2-conditional-column.jpg)
+ 
+ > Deze conditional column geeft je de fundamenten voor de laatste condities. 
+ > De user interface is beperkt en je gebruikt het als shortcut om de gewenste condities te genereren. 
+ > We leggen er de laatste hand aan door een aanpassing te doen in de formule via de *Formula bar*.
+ > De eerste conditie voorkomt dat de M functie die de "/" aan het begin zoekt een error teruggeeft bij een "null" waarde.
+ 
+12. Klik op OK en bekijk de formule in de *Formula bar*. Zoek de tekst 'then [Hyperlink Old]' op en vervang het met 'then "aka.ms" & [Hyperlink Old]'.
+
+13. Verwijder de kolom **Hyperlink Old**.
+
+> Je bent er bijna, maar er wachten nog een paar verrassingen. Scroll door naar rij 149. De kolom **Hyperlink** is leeg, maar in de kolom **Message** zie je dat er een hyperlink staat. 
+> Dit komt doordat de hyperlink zowel scheidingsteken "https://" als "www." bevat. De splitsing resulteerde in drie waarden, maar alleen de eerste twee zijn geladen.
+> De volgende stappen verhelpen dit.
+
+14. Wijzig in de formule van de stap **Split Column by Demiliter** de tekst "{"Hyperlink.1","Hyperlink.2"}" in "3".
+
+> Je gebruikt hier het argument 3 in plaats van kolomnamen, maar het resultaat is hetzelfde: kolommen genaamd **Hyperlink.1**,**Hyperlink.2** en **Hyperlink.3**.
+> De hyperlinks staan nu verdeeld over kolommen **Hyperlink.2** en **Hyperlink.3**. Als je ze merged dan kun je de ontbrekende hyperlinks ophalen en de query verbeteren.
+
+15. Check dat de stap **Split Column by Demiliter** geselecteerd is. Selecteer dan kolommen **Hyperlink.2** en **Hyperlink.3** en selecteer op de *Transform* tab **Merge Columns**.
+
+16. Klik bij het waarschuwingsbericht dat opent (stappen tussenvoegen kan opvolgende stappen breken) op **Insert**.
+
+17. Hou in de **Merge Columns** dialoog die opent de default waarden aan en klik op OK.
+
+18. Hernoem de kolom **Merged** tot **Hyperlink.2**. Als de **Insert Step** dialoog opent, klik weer op **Insert**.
+
+19. Controleer nu het resultaat van deze aanpassing in de laatste stap van het paneel *Applied Steps*.
+
+> Er zijn nog twee situaties die niet goed worden verwerkt. Ten eerste zijn er hyperlinks die niet eindigen met een spatie, maar met een punt, zoals in rij 149.
+> Om dit te verhelpen verwijder je alle interpunctie van de hyperlinks.
+
+20. Selecteer de kolom **Hyperlink**, open op de *Transform* tab het dropdown menu **Format** en selecteer **Trim**. Je kunt ook de shortcut gebruiken: rechtsklikken op de **Hyperlink** kolom en onder **Transform** kiezen voor **Trim**.
+
+> Standaard verwijderd **Trim** spaties van het begin en eind van een tekst. Je kunt het ook manipuleren om interpunctie aan het eind te verwijderen.
+> Hiervoor moet je wat aanpassingen doorvoeren in de formule. Die bevat nu de functie **Text.Trim**. Die functie accepteer als tweede argument een lijst met tekst items. 
+> Met accolades ({}) kunnen we de lijst opstellen: {".",",",")"}. Om deze lijst als tweede argument mee te geven, moet je ook het eerste argument aanleveren, de tekst in de **Hyperlink** kolom.
+> Om deze tekst te geven kun je een combinatie van keyword **each** en de underscore (_) gebruiken.
+
+21. Vervang in de *Formula bar* de tekst "Text.Trim" door "each Text.Trim(_,{".",",",")"})".
+
+> Merk in rij 174 het laatste issue op. De hyperlink eindigt in een nieuwe regel, gevolgd door meer tekst. Bij het toepassen van de tweede **Split Column by Delimiter** aan de hand van een spatie, werd de hyperlink niet goed verwerkt. 
+
+22. Selecteer de tweede **Split Column by Delimiter** en bekijk de formule. Zoek naar de tekst 'SplitTextByEachDelimiter({" "}' en vervang het door 'SplitTextByAnyDelimiter({" ", "#(lf)"}'
+
+> Waarde "#(lf)" beschrijft het speciale line feed karakter. Door de functie **SplitTextByEachDelimiter** te vervangen door **SplitTextByAnyDelimiter** kon je meerdere scheidingstekens opgeven. 
+
+23. Ga om tenslotte de prefix "http://" op te nemen in de hyperlink naar de laatste stap in *Applied Steps*. Selecteer de **Hyperlink** kolom, open op de *Transform* tab het dropdown menu **Format** en kies **Add Prefix**.
+
+24. Voer in de **Prefix** dialoog die opent de waarde "http://" in en klik op OK.
+
+> In de voorgaande stap voegde je een prefix toe aan alle rijen, zelfs als er geen URLs in het bericht stonden. Er zijn echter gevallen waarin dat niet wenselijk is, zoals bij rij 113. 
+> Volg de volgende stappen om de prefix in die gevallen te verwijderen.
+
+25. Selecteer de kolom **Hyperlink** en selecteer op de *Home* tab **Replace Values**.
+
+26. Voer in de **Replace Values** dialoog die opent onder **Value to find* de waarde "http://" in. Laat de **Replace with** waarde leeg.
+
+27. klap de **Advanced options** open en vink **Match entire cell contents** aan.
+
+> Deze stap is cruciaal, anders wordt de prefix in alle rijen verwijderd.
+
+28. Klik op OK en selecteer **Close & Apply** om de berichten en hun hyperlinks in het rapport te laden.
+
+> Je hebt nu het gros van de uitdagingen in deze dataset verholpen en de gevraagde hyperlinks beschikbaar gesteld. 
+> Er zijn nog een paar hyperlinks die niet goed worden verwerkt. Kun jij ze vinden?
+> Er zijn geavanceerde technieken om keywords in tekst te detecteren, die je kunnen helpen een bredere lijst aan domeinnamen te detecteren.
 
 ## Table of Contents
 
