@@ -79,7 +79,55 @@ In opdracht 1 heb je het Product Number gesplitst in vier elementen. Stel nu dat
 
 5. Klik op Ctrl+Enter of OK om de kolom aan te maken. Het *Preview* paneel laat de nieuwe kolom zien, gevuld zoals verwacht. 
 
-> In het **Applied Steps** paneel staat de stap die de kolom toevoegt: **Inserted Text Between Delimiters**. Zonder kennis van deze transformatie heb je het kunnen gebruiken. Nu je het hier ziet kun je het ook in het lint opzoeken (staat onder de **Transform** tab) en onderzoeken hoe het werkt. 
+> In het **Applied Steps** paneel staat de stap die de kolom toevoegt: **Inserted Text Between Delimiters**. Zonder kennis van deze transformatie heb je het kunnen gebruiken. Nu je het hier ziet kun je het ook in het lint opzoeken (staat onder de **Transform** tab) en onderzoeken hoe het werkt.
+
+## Opdracht 4 - Afleiden van buckets/bereik
+
+In deze opdracht gebruiken we **Column from Examples** om numerieke waarden te groeperen in buckets.
+De kolom Size bevat een combinatie van tekstuele en numerieke maten. 
+In de volgende stappen leer je de tekstuele waarden te negeren en een nieuwe kolom te definiëren afgeleid van de numerieke waarden. E
+r zijn verschillende manieren om dit voor elkaar te krijgen. 
+In stap 1 t/m 4 gebruik je de features voor foutafhandeling in Power Query. Vanaf stap 5 maak je gebruik van **Column from Examples**.
+
+1. Selecteer de kolom **Size**. Selecteer op de tab **Add Column** de transformatie **Duplicate Column**.
+
+2. Hernoem de kolom **Size - Numbers** en verander het datatype door aan de linkerkant van de kolomkop op ABC te klikken en in het dropdown menu **Whole Number** te selecteren.
+
+> Je ziet nu Errorwaarden staan in alle rijen met tekstuele waarden voor **Size**, maar je wil alleen met numerieke waarden werken, dus ga je de Errorwaarden vervangen met nulls.
+
+3. Selecteer de kolom **Size - Numbers**, klik in de **Transform** tab op het dropdown menu van **Replace Values** en kies **Replace Errors**. Een snellere manier om dit te kiezen is te rechtsklikken op de kolomkop en **Replace Errors** te selecteren.
+
+4. Kies in de **Replace Errors** dialoog die opent als vervangende waarde "null" (zonder quotes) en klik OK.
+
+5. Verwijder nu de laatste vier stappen die in het *Applied Steps* paneel zijn toegevoegd. De laatste stap die overblijft is **Inserted Text Between Delimiter**.
+
+6. Selecteer de kolom **Size**. Selecteer in de tab **Add Column** het dropdown menu **Column from Examples** en kies **From Selection**.
+
+7. Hernoem de nieuwe kolom naar **Size - Numbers**.
+
+8. Dubbelklik op de eerste lege cel in **Size - Numbers**. De waarde in kolom **Size** is "S". Omdat je tekstuele waarden wilt negeren, vul je hier "null" (zonder quotes) in en druk op Enter.
+
+9. Herhaal dit voor rij 2, 3, 7 en 21 (Size M, L, NA en X).
+
+10. Vul rij 22 met waarde 60 (Size 60). Power Query vult de nieuwe **Size - Numbers** kolom met de voorgestelde waarden. Met Ctrl+Enter of OK maak je de kolom aan.
+
+> In het *Applied Steps* paneel zie je nu de stap **Added Conditional Column** staan. Dubbelklik op deze stap om de afleiding te zien die is gebaseerd op jouw voorbeelden. Je had dit ook kunnen aanmaken door te kiezen voor **Conditional Column** in plaats van **Column from Examples**.
+
+11. Verander het datatype van **Size - Numbers** naar "Whole Number". 
+
+> In het vervolg van deze opdracht maken we een aparte tabel voor producten met numerieke maten en classificeren we ze in 4 buckets door gebruik te maken van **Column from Examples**.
+
+12. Rechtsklik in het *Queries* paneel op **Products** en selecteer **Reference**. Hernoem de nieuw toegevoegde query tot "Numeric-Size Products". Dit kan door te dubbelklikken op de query, rechtsklikken en **Rename** te selecteren of door de Name aan te passen in het *Query Settings* paneel onder **Properties**.
+
+> Het gebruik van Reference is een handige techniek voor het aanmaken van vertakkingen van een brontabel en maakt een nieuwe tabel aan die start vanaf de laatste stap van de query waaraan wordt gerefereerd. 
+
+13. Verwijder in de nieuwe query alle products waarvoor de waarde "null" is in de kolom **Size - Numbers**. Klik hiervoor in de kolomkop op de filter control en selecteer **Remove Empty**.
+
+14. Maak een nieuwe **Column from Example** aan die **Size Bucket** heet en die voldoet aan de volgende afleiding: X bij 70 of groter, L bij 60 of groter, M bij 50 of groter, S bij kleiner dan 50. Check de formule die voorgesteld wordt ter verificatie. 
+
+15. Dubbelklik op de stap **Column from Examples** in het *Applied Steps* paneel om de afleidingscondities te reviewen. Sluit dan de dialoog.
+
+16. Bekijk de *formula bar* voor de gegenereerde M code. 
 
 ## Table of Contents
 
