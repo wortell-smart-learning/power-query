@@ -137,7 +137,7 @@ Deze uitdaging kan eenvoudig  zijn als je data redelijk consistent is, maar je h
 
 In deze opdracht willen we de hyperlinks uit een dataset van Facebook posts extraheren. Sommige hyperlinks zijn makkelijk te herkennen doordat ze beginnen met "http://", maar er zijn ook veel afwijkende waarden die niet eenvoudig te addresseren zijn.
 
-1. Start een nieuw Power BI rapport en lees workbook L2O2.xlsx uit Lab 2 in als Excel workbook en start de Power Query Editor.
+1. Start een nieuw Power BI rapport en lees workbook **L2O2.xlsx** uit **Lab 2** in als Excel workbook en start de Power Query Editor.
 
 2. Selecteer de kolom **Message**, dupliceer het en hernoem de nieuwe kolom tot "Hyperlink" (zonder quotes).
 
@@ -265,7 +265,7 @@ Tenslotte leer je hoe specifieke datum- en tijdselementen uit datum/tijd waarden
 
 2. Ga in de **File** tab naar **Options and settings** en dan naar **Options** en pas onder de **CURRENT FILE** de **Regional Settings** aan naar "English (United States)".
 
-3. Lees workbook L2O6.xlsx uit Lab 2 in als Excel workbook en start Power Query Editor.
+3. Lees workbook **L2O6.xlsx** uit **Lab 2** in als Excel workbook en start Power Query Editor.
 
 4. Pas het datatype van kolom **Release Date** aan naar **Date**. Check of alle rijen dezelfde datum katen zien.
 
