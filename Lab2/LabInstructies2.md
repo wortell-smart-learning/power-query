@@ -309,11 +309,13 @@ else
 
 > Je hebt beide formats nu in verschillende kolommen beschikbaar. Voor elke rij wil je nu één van beide kiezen.
 
-9. Slecteer op de **Add Column** tab de transformatie **Conditional Column** en voer de volgende waarden in in de dialoog die opent.
+9. Selecteer op de **Add Column** tab de transformatie **Conditional Column** en voer de volgende waarden in in de dialoog die opent.
 
  ![Conditional column invoer](./img/L2O7-conditional-column.jpg)
+
+10. Selecteer de kolom **Date** en open op de tab **Transform** of **Add Column** het dropdown menu **Date**. Bekijk welke transformaties er mogelijk zijn op een goed geformatteerde datumkolom. Selecteer je meerdere datumkolommen dan kun je in het **Date** dropdown menu onder de **Add Column** tab ook kiezen voor **Subtract Days** om het verschil tussen twee datums uit te rekenen of de vroegste/laatste te bepalen.. 
  
- 10. Verander het datatype van de nieuwe kolom in "Date", verwijder de kolommen die nu overbodig zijn en laad de data naar je rapport.
+12. Verander het datatype van de nieuwe kolom in "Date", verwijder de kolommen die nu overbodig zijn en laad de data naar je rapport.
 
 ## Table of Contents
 
