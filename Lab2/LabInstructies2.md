@@ -245,6 +245,34 @@ In deze opdracht willen we de hyperlinks uit een dataset van Facebook posts extr
 > Er zijn nog een paar hyperlinks die niet goed worden verwerkt. Kun jij ze vinden?
 > Er zijn geavanceerde technieken om keywords in tekst te detecteren, die je kunnen helpen een bredere lijst aan domeinnamen te detecteren.
 
+## Opdracht 6 - Omgaan met meerdere datumformats
+
+Een van de vaak voorkomende uitdagingen in dataprepararatie is omgaan met datatypen. 
+Tekstkolommen zijn eenvoudig, maar numerieke en datumkolommen kunnen complex zijn.
+Je begint met het converteren van tekst naar datums en vervolgt met het omgaan met foutieve datums.
+Tenslotte leer je hoe specifieke datum- en tijdselementen uit datum/tijd waarden te extraheren.
+
+1. Start een nieuw Power BI rapport. 
+
+> Dit workbook bevat de productcatalogus van AdventureWorks met in de laatste kolom de **Release Date**.
+> Alleen hebben de verschillende data entry teams deze datums in vijf verschillende formats ingevoerd.
+> 7/1/2018
+> 2018-07-01
+> 7.1.2018
+> Jul 1, 2018
+> 1 July, 2018
+> Je krijgt de data in de regionale setting voor English/United States aangeleverd en zal hiermee rekening moeten houden.
+
+2. Ga in de **File** tab naar **Options and settings** en dan naar **Options** en pas onder de **CURRENT FILE** de **Regional Settings** aan naar "English (United States)".
+
+3. Lees workbook L2O6.xlsx uit Lab 2 in als Excel workbook en start Power Query Editor.
+
+4. Pas het datatype van kolom **Release Date** aan naar **Date**. Check of alle rijen dezelfde datum katen zien.
+
+> Power Query converteert automatisch de verschillende datum formats naar het nieuwe datatype bij de juiste regionale instellingen.
+
+5. Sluit Power Query Editor en laadt de data naar het rapport.
+
 ## Table of Contents
 
 1. [Een eerste blik op Power Query](../Lab1/LabInstructies1.md)
