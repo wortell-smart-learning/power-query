@@ -348,6 +348,35 @@ In deze opdracht zet je een geaggregeerde tabel om in een sterschema. Het betref
 
 10. Laad de queries naar je rapport en check in het datamodel of de relatie moet worden toegevoegd.
 
+## Opdracht 9 - Data splitsen in meerdere rijen
+
+In de vorige opdracht heb je data opgedeeld in meerdere tabellen. 
+In deze opdracht bekijk je een speciale variant hiervan, kolommen die in hun waarde meerdere verwijzingen hebben staan.
+Je krijgt hier een dataset met producten uit de AdventureWorks dataset, waarvan elk product in meerdere kleuren kan worden besteld.
+De lijst van kleuren staat bij elk product in de kolom **Colors**, gescheiden door een komma. 
+Je gaat deze dataset splitsen in twee tabellen: één voor de producten en één voor de relatie van de producten met kleuren.
+
+1. Start een nieuw Power BI rapport, lees workbook **L2O9.xlsx** uit **Lab 2** in als Excel workbook en open het in Power Query Editor.
+
+2. Rechtsklik op de query en selecteer **Reference**. Hernoem de nieuwe query tot "Products and Colors".
+
+4. Met query **Products and Colors** geselecteerd, kies onder de **Home** tab voor **Choose Columns**.
+
+5. Vink alleen de kolommen **ProductCodeNew** en **Colors** aan.
+
+6. Selecteer de kolom **Colors**, open op de **Transorm** tab het dropdownmenu **Split Column** en kies voor **By Delimiter**.
+
+7. Klap de **Advanced options** open, kies bij **Split into** voor **Rows** en klik op OK.
+
+8. Open met kolom **Colors** geselecteerd op de **Transform** tab het dropdownmenu **Format** en selecteer **Trim**. Deze stap verwijdert overtallige spaties.
+
+9. Laad de queries in je rapport. 
+
+> Om de grootte van je rapport te beperken zou je de kolom **Colors** uit de **Products** query moeten verwijderen. 
+> Als je dat nu doet, levert dat een error op, aangezien die kolom in de referenced query **Products and Colors** wordt gebruikt. 
+> Om dit op te lossen kun je een nieuwe reference maken van **Products** en de kolom daar verwijderen. 
+> Vervolgens kun je het laden van de basisquery naar het rapport uitzetten.
+
 ## Table of Contents
 
 1. [Een eerste blik op Power Query](../Lab1/LabInstructies1.md)
