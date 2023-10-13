@@ -317,6 +317,38 @@ else
  
 12. Verander het datatype van de nieuwe kolom in "Date", verwijder de kolommen die nu overbodig zijn en laad de data naar je rapport.
 
+## Opdracht 8 - Data splitsen in feiten en dimensies
+
+Datapreparatie is de sleutel tot het succes van data analyse. Voor effectieve analyse moet je vaak je tabellen splitsen om een één tabel te maken voor jouw transacties of feiten (verkoopregels, opnames) en aanvullende tabellen die je feiten ondersteunen (product, symptoom).
+In deze opdracht zet je een geaggregeerde tabel om in een sterschema. Het betreft data van World Wide Importers, een andere sample dataset van Microsoft.
+
+1. Start een nieuw Power BI rapport, lees worksheet **Sales_Order** uit workbook **L2O8.xlsx** uit **Lab 2** in als Excel workbook en open het in Power Query Editor.
+
+2. Hernoem de query tot "Sales Order - Base".
+
+> Het doel is om de originele tabel in tweeën te splitsen, op de juiste granulariteitsniveaus. 
+> De eerste tabel is de feitentabel voor **Sales Orders** met ID voor **Stock Item**.
+> De tweede tabel is de dimensietabel voor **Stock Items**.
+
+3. Rechtsklik op de query en selecteer **Reference**. Hernoem de nieuwe query tot "Stock Items".
+
+4. Met query **Stock Items** geselecteerd, kies onder de **Home** tab voor **Choose Columns**.
+
+5. Vink in de dialoog die opent **(Select All Columns)** uit, selecteer vervolgens de kolommen **Stock ID**, **Stock Item** en **Stock Lead Time** en klik op OK.
+
+6. Selecteer de kolom **Stock ID** en open vervolgens op de **Home** tab het dropdown menu **Remove Rows** en kies voor **Remove Duplicates**.
+
+> Je hebt nu een dimensietabel met alle **Stock Items** met unieke voorkomens op elke rij.
+> Tijd om de feitentabel te maken.
+
+7. Rechtsklik op de query **Sales Order - Base** en selecteer **Reference**. Hernoem de nieuwe query tot "Sales Orders".
+
+8. Met query **Sales Orders** geselecteerd, kies onder de **Home** tab voor **Choose Columns** en vink de kolommen **Stock Item** en **Stock Lead Time** uit.
+
+9. Stel de query **Sales Order - Base** zo in dat die niet geladen wordt.
+
+10. Laad de queries naar je rapport en check in het datamodel of de relatie moet worden toegevoegd.
+
 ## Table of Contents
 
 1. [Een eerste blik op Power Query](../Lab1/LabInstructies1.md)
