@@ -85,8 +85,7 @@ In opdracht 1 heb je het Product Number gesplitst in vier elementen. Stel nu dat
 
 In deze opdracht gebruiken we **Column from Examples** om numerieke waarden te groeperen in buckets.
 De kolom Size bevat een combinatie van tekstuele en numerieke maten. 
-In de volgende stappen leer je de tekstuele waarden te negeren en een nieuwe kolom te definiëren afgeleid van de numerieke waarden. E
-r zijn verschillende manieren om dit voor elkaar te krijgen. 
+In de volgende stappen leer je de tekstuele waarden te negeren en een nieuwe kolom te definiëren afgeleid van de numerieke waarden. Er zijn verschillende manieren om dit voor elkaar te krijgen. 
 In stap 1 t/m 4 gebruik je de features voor foutafhandeling in Power Query. Vanaf stap 5 maak je gebruik van **Column from Examples**.
 
 1. Selecteer de kolom **Size**. Selecteer op de tab **Add Column** de transformatie **Duplicate Column**.
@@ -153,7 +152,7 @@ In deze opdracht willen we de hyperlinks uit een dataset van Facebook posts extr
 
 > In de *Formula bar* zie je de M code, die gebruik maakt van de functie **SplitTextByEachDelimiter**. Om meerdere scheidingstekens te kunnen gebruiken heb je de functie **SplitTextByAnyDelimiter** nodig.
 
-6. Zoek in de formule naar "SplitTextBy**Each**Delimiter({"http://"}" en wijzig het naar "SplitTextBy**Any**Delimiter({"http://","https://","www."}"
+6. Zoek in de formule naar `SplitTextBy**Each**Delimiter({"http://"}` en wijzig het naar `SplitTextBy**Any**Delimiter({"http://","https://","www."}`.
 
 > De kolom **Hyperlink.2** bevat nu meer herkende hyperlinks. Er zijn echter resultaten met tekst achter de hyperlink, zoals rij 15. 
 > Om deze tekst te verwijderen mag je aannemen dat een hyperlink eindigd met een spatie en dit de kolom met dat scheidingsteken splitsen.
@@ -183,7 +182,7 @@ In deze opdracht willen we de hyperlinks uit een dataset van Facebook posts extr
  > We leggen er de laatste hand aan door een aanpassing te doen in de formule via de *Formula bar*.
  > De eerste conditie voorkomt dat de M functie die de "/" aan het begin zoekt een error teruggeeft bij een "null" waarde.
  
-12. Klik op OK en bekijk de formule in de *Formula bar*. Zoek de tekst 'then [Hyperlink Old]' op en vervang het met 'then "aka.ms" & [Hyperlink Old]'.
+12. Klik op OK en bekijk de formule in de *Formula bar*. Zoek de tekst `then [Hyperlink Old]` op en vervang het met `then "aka.ms" & [Hyperlink Old]`.
 
 13. Verwijder de kolom **Hyperlink Old**.
 
@@ -191,7 +190,7 @@ In deze opdracht willen we de hyperlinks uit een dataset van Facebook posts extr
 > Dit komt doordat de hyperlink zowel scheidingsteken "https://" als "www." bevat. De splitsing resulteerde in drie waarden, maar alleen de eerste twee zijn geladen.
 > De volgende stappen verhelpen dit.
 
-14. Wijzig in de formule van de stap **Split Column by Demiliter** de tekst "{"Hyperlink.1","Hyperlink.2"}" in "3".
+14. Wijzig in de formule van de stap **Split Column by Demiliter** de tekst `{"Hyperlink.1","Hyperlink.2"}` in `3`.
 
 > Je gebruikt hier het argument 3 in plaats van kolomnamen, maar het resultaat is hetzelfde: kolommen genaamd **Hyperlink.1**,**Hyperlink.2** en **Hyperlink.3**.
 > De hyperlinks staan nu verdeeld over kolommen **Hyperlink.2** en **Hyperlink.3**. Als je ze merged dan kun je de ontbrekende hyperlinks ophalen en de query verbeteren.
@@ -216,11 +215,11 @@ In deze opdracht willen we de hyperlinks uit een dataset van Facebook posts extr
 > Met accolades ({}) kunnen we de lijst opstellen: {".",",",")"}. Om deze lijst als tweede argument mee te geven, moet je ook het eerste argument aanleveren, de tekst in de **Hyperlink** kolom.
 > Om deze tekst te geven kun je een combinatie van keyword **each** en de underscore (_) gebruiken.
 
-21. Vervang in de *Formula bar* de tekst "Text.Trim" door "each Text.Trim(_,{".",",",")"})".
+21. Vervang in de *Formula bar* de tekst `Text.Trim` door `each Text.Trim(_,{".",",",")"})`.
 
 > Merk in rij 174 het laatste issue op. De hyperlink eindigt in een nieuwe regel, gevolgd door meer tekst. Bij het toepassen van de tweede **Split Column by Delimiter** aan de hand van een spatie, werd de hyperlink niet goed verwerkt. 
 
-22. Selecteer de tweede **Split Column by Delimiter** en bekijk de formule. Zoek naar de tekst 'SplitTextByEachDelimiter({" "}' en vervang het door 'SplitTextByAnyDelimiter({" ", "#(lf)"}'
+22. Selecteer de tweede **Split Column by Delimiter** en bekijk de formule. Zoek naar de tekst `SplitTextByEachDelimiter({" "}` en vervang het door `SplitTextByAnyDelimiter({" ", "#(lf)"}`.
 
 > Waarde "#(lf)" beschrijft het speciale line feed karakter. Door de functie **SplitTextByEachDelimiter** te vervangen door **SplitTextByAnyDelimiter** kon je meerdere scheidingstekens opgeven. 
 
