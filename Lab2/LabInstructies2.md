@@ -273,6 +273,48 @@ Tenslotte leer je hoe specifieke datum- en tijdselementen uit datum/tijd waarden
 
 5. Sluit Power Query Editor en laadt de data naar het rapport.
 
+## Opdracht 7 - Omgaan met datums uit verschillende regionale instellingen.
+
+In de vorige opdracht mocht je ervan uitgaan dat alle rijen vanuit dezelfde regionale instelling werden aangeleverd.
+In deze opdracht leer je hoe je om moet gaan met data waar dat niet voor geldt.
+
+1. Start een nieuw Power BI rapport en lees **workbook L2O7.xlsx** uit **Lab 2** in als Excel workbook.
+
+> Dit workbook bevat twee rijen, waarvan de **Release Date** het format uit twee verschillende regionale instellingen heeft.
+
+2. Selecteer de kolom **Release Date**, open op de **Transform** tab het dropdown menu van **Split Column** en selecteer **By Delimiter**. Het dialoog dat opent detecteert de "/" als scheidingsteken. Klik op OK.
+
+> De **Release Date** is nu in drie delen opgesplitst. Bij **Country** "US" staat kolom **Release Date.1** voor de maand en bij "UK" voor de dag.
+> In de volgende stappen ga je dit recht brijen aan de hand van een M formule en een Custom Column. 
+> In de stappen erna leer je een andere manier die geen M-kennis vergt, maar meer interacties vergt met de UI.
+
+3. Selecteer op de **Add Column** tab de transformatie **Custom Column**. Noem de nieuwe kolom "Date" en voer de volgende formule in:
+
+```
+if [Country] = "US" then
+	#date([Release Date.3],[Release Date.1],[Release Date.2])
+else
+	#date([Release Date.3],[Release Date.2],[Release Date.1])
+```
+
+4. Verander het datatype van de kolom naar **Date** en verwijder de drie **Release Date** kolommen.
+
+5. Rechtskli om de **Products** query te dupliceren in het *Queries* paneel op **Products** en selecteer **Duplicate**.
+
+6. Selecteer de nieuwe **Products (2)** query en verwijder in het *Applied Steps* paneel de laatste drie stappen (inclusief **Added Custom**).
+
+7. Selecteer met Ctrl de drie **Release Date** kolommen als volgt: Eerst **Release Date.1**, dan **Release Date.2** en tenslotte **Release Date.3**. Selecteer op de **Add Column** tab **Merge Columns** en kies in de dialoog die opent de Custom separator "/" en noem de kolom "US Date".
+
+8. Herhaal dit voor de UK Date, waarbij je de kolommen als volgt selecteer: Eerst **Release Date.2**, dan **Release Date.1** en tenslotte **Release Date.3**
+
+> Je hebt beide formats nu in verschillende kolommen beschikbaar. Voor elke rij wil je nu één van beide kiezen.
+
+9. Slecteer op de **Add Column** tab de transformatie **Conditional Column** en voer de volgende waarden in in de dialoog die opent.
+
+ ![Conditional column invoer](./img/L2O7-conditional-column.jpg)
+ 
+ 10. Verander het datatype van de nieuwe kolom in "Date", verwijder de kolommen die nu overbodig zijn en laad de data naar je rapport.
+
 ## Table of Contents
 
 1. [Een eerste blik op Power Query](../Lab1/LabInstructies1.md)
