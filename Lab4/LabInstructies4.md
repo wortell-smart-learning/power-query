@@ -21,9 +21,7 @@ Het kan ook voorkomen dat kolommen uit de tweede databron worden genegeerd, waar
 In dit lab leer je de oplossing voor deze issues.
 
 
-1. Start een nieuw Power BI rapport en lees workbook **L4O1 - Bikes.xlsx** uit **Lab 4** in als Excel workbook (selecteer **Load**).
-
-2. Lees **L4O1 - Accessories.xlsx** uit **Lab 4** in als Excel workbook en start Power Query Editor (Selecteer **Transform**).
+1. Start een nieuw Power BI rapport, lees workbook **L4O5 - Conversion Table.xlsx** uit **Lab 4** in als Excel workbook en start Power Query Editor.
 
 3. Creër een nieuwe query waarin beide queries worden samengevoegd (**Append Queries as New**).
 
@@ -132,3 +130,40 @@ In deze opdracht zul je beide formules gaan toepassen bij het samenvoegen van Ad
 
 9. Selecteer nu query **L4O4 - Products** en verwijder de laatste stap, **Changed Type**. De bestanden zijn nu correct samengevoegd en er zijn geen onverwachte ontbrekende waarden meer.
 
+## Opdracht 5 - Transponeren met een conversietabel
+
+Als eenvoudige tekstmanupulatie niet afdoende is om kolomnamen te consolideren, dan kun je gebruik maken van een conversietabel.
+Deze tabel vertaalt de afwijkende kolomnamen naar de correcte vorm. 
+Je kunt een voorbeeld bekijken van een conversietabel in **L4O5 - Conversion Table.xlsx**.
+In dit excel workbook kun je klein beginnen en de conversies langzaam uitbreiden om alle issues te verhelpen.
+De query in Power Query blijft hetzelfde en behoeft geen handmatige aanpassingen meer.
+Aanvullen van de externe conversietabel en het verversen van het rapport is voldoende.
+
+Om deze conversietabel te gebruiken om afwijkende kolomnamen te verbeteren gebruik je **Merge Queries**.
+Dit stelt je in staat om meerdere queries aan elkaar te koppelen, aan de hand van overeenkomende waarden in gespecificeerde kolommen. 
+Je zal tegen het einde van dit lab in staat zijn om aan de hand van Table.TransformColumnNames en custom M formules de kolomnamen te vervangen.
+Dit vergt wat diepere kennis van M, vandaar dat je eerst drie andere UI-gedreven aanpakken zal uitwerken, die geen geavanceerde M kennis behoeven.
+
+Ben je al comfortabel met M code, dan zal je de laatste opdracht waarschijnlijk de beste uitwerking vinden. 
+Werk echter ook de overige opdrachten door om de voor- en nadelen te ondervinden.
+
+1. Pak de bestanden uit de zip **L4O5 - Products.zip** uit in de folder "C:\Data\L4\L4O5 - Products\". 
+
+2. Start een nieuw Power BI rapport en lees workbook **L4O5 - Bikes.xlsx** uit **Lab 4** in als Excel workbook (selecteer **Load**).
+
+3. Rechtsklik op de query en zet **Enable load** uit. Klik nu op **Close & Apply**.
+
+4. Importeer de product tabellen als folder uit **L4O5 - Products**.
+
+5. Selecteer de **Transform Sample File** en hernoem het tot "Products Sample". Hernoem query **L4O5 - Products** tot "Appended Products" en klik op **Close & Apply**.
+
+6. Sla het rapport nu drie keer op, als basis voor de drie volgende opdrachten. 
+
+> De eerste techniek voor normaliseren van kolomnamen is de **Transpose** transformatie op de **Transform** tab.
+> Als je waarden van kolomnamen wilt manipuleren is dat makkelijker als ze verticaal in een kolom staan. Hier komt **Transpose** van pas.
+> De originele kolomnamen worden echter niet in stand gehouden na de transformatie. 
+> Je zal die eerst moeten terugzetten naar de eerste rij, voor het transponeren.
+
+7. Open het eerste opgeslagen rapport en open de Power Query Editor. 
+
+8. Selecteer de query **Products Sample** en verwijder de laatste stap, **Primoted Headers**.
