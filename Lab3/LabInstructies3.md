@@ -65,3 +65,54 @@ Gelukkig heeft Power Query daar een oplossing voor.
 > Wordt er een nieuwe file toegevoegd in de onderliggende folder, dan zal deze query die automatisch oppakken en hoeven er geen handmatige handelingen meer te worden uitgevoerd.
 > Dit kun je simuleren door een van de files in de folder te kopiëren en te hernoemen tot **L3O2 - 2018.xlsx**.
 > Ververs nu de preview door in de **Home** tab **Refresh Preview** te selecteren en bekijk het resultaat. Mooi toch?
+
+## Opdracht 3 - Samenvoegen van worksheets uit een excel workbook
+
+Een laatste voorbeeld van het massaal samenvoegen van bronnen is het samenvoegen van worksheets uit een excel workbook.
+Kun je daar vergelijkbaar met de folder import een query definiëren die dynamisch rekening houdt met nieuwe data?
+
+1. Start een nieuw Power BI rapport en selecteer op de **Home** tab **Get Data** en selecteer onder de categorie **File** de bron **Excel**.
+
+2. Selecteer in de dialoog die opent workbook **L3O3 - Year per Worksheet.xlsx** uit **Lab 3** en klik op **Open**.
+
+> Je kunt hier individuele worksheets selecteren, maar dit leidt tot handmatige handelingen op de lange termijn. 
+> Nieuwe worksheets worden dan niet automatisch opgepakt door de query.
+
+3. Rechtsklik op de folder **L3O3 - year per Worksheet.xlsx** en kies **Transform Data**.
+
+4. Hernoem de query tot "Products".
+
+> In het *Preview Query* paneel zie je een tabel met de worksheets als rijen.
+> De inhoud van de worksheets zit in de **Data** kolom verhuld.
+> Heb je verstopte worksheets of ongerelateerde worksheets in jouw workbook dan kun je ze nu eruit filteren.
+> Vervolgens kun je de relevante set samenvoegen.
+
+5. Verwijder de kolommen**Item**, **Kind** en **Hidden**. 
+
+6. Klik in de kolomkop van kolom **Data** op **Expand** (twee pijlen). Klik in de **Expand** dialoog die opent op OK. 
+
+> Als de data op elk worksheet uit tabelobjecten bestond in de workbook, zou je hier de kolomnamen kunnen selecteren in plaats van Column1, Column2 enz.
+> Aangezien dit in dit workbook niet het geval is, zul je de overbodige headerrijen moeten opschonen.
+
+7. Selecteer in de **home** tab de transformatie **Use First Row as Headers**.
+
+8. Open de filter control in de kolomkop van kolom **Name** en verwijder het vinkje voor waarde "Name". Dit verwijdert de headerrijen van de overige jaren.
+
+9. Hernoem de eerste kolom tot **Release Year**.
+
+10. Laad de queries naar je rapport. 
+
+> Tijd om de schaalbaarheid van jouw rapport te testen. We gaan de data voor een nieuw jaar simuleren.
+
+11. Open het onderliggende excelbestand, dupliceer worksheet **2017** en noem het "2018".
+
+12. Ga terug naar Power Query Editor en ververs de preview. Controleer of de nieuwe data goed is doorgekomen. 
+
+13. Open het onderliggende excelbestand opnieuw en voeg een nieuw eerste worksheet toe met data voor 2014.
+
+14. Probeer de query in Power Query Editor opnieuw te verversen. Dit levert nu een foutmelding op: "The column '2015' of the table was not found". Verander voor een korte termijnoplossing van deze fout in de formule van de stap **Changed Type** in het *Applied Steps* paneel de waarde "2015" naar "2014".
+
+15. Doe vervolgens hetzelfde in de stap **Renamed Columns**. De query geeft nu weer een foutloos resultaat. Laad tenslotte de data naar je rapport.
+
+> Als je kan aannemen dat de toegevoegde data in jouw worksheets altijd nieuwe data betreft, dan gaat de bovenstaande methode goed.
+> Maar wat als dit niet per se het geval hoeft te zijn. Hoe kun je de bovenstaande query aanpassen zodat er niet stees handmatige handelingen nodig zijn?
