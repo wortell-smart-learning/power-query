@@ -379,9 +379,9 @@ Je gaat deze dataset splitsen in twee tabellen: één voor de producten en één
 
 ## Table of Contents
 
-1. [Een eerste blik op Power Query](../Lab1/LabInstructies1.md)
-2. [Datapreparatie uitdagingen](../Lab2/LabInstructies2.md)
-3. [](../Lab3/LabInstructies3.md)
+1. [Lab 1 - Een eerste blik op Power Query](../Lab1/LabInstructies1.md)
+2. [Lab 2 - Datapreparatie uitdagingen](../Lab2/LabInstructies2.md)
+3. [Lab 3 - Data samenbrengen uit meerdere bronnen](../Lab3/LabInstructies3.md)
 4. [](../Lab4/LabInstructies4.md)
 5. [](../Lab5/LabInstructies5.md)
 6. [](../Lab6/LabInstructies6.md)
