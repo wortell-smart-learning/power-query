@@ -47,7 +47,7 @@ Dit wordt vervelend als je maandelijks een nieuwe file krijgt aangeleverd met bi
 Je wil hiervoor niet handmatig de query toevoegen en de lijst met gecombineerde queries bijwerken in Advanced Editor.
 Gelukkig heeft Power Query daar een oplossing voor.
 
-1. Pak de bestanden uit de zip **L3O3 - Products.zip** uit in de folder "C:\Data\L3\L3O2 - Products\".
+1. Pak de bestanden uit de zip **L3O2 - Products.zip** uit in de folder "C:\Data\L3\L3O2 - Products\".
 
 2. Start een nieuw Power BI rapport en selecteer op de **Home** tab **Get Data** en selecteer onder de categorie **File** de bron **Folder**.
 
