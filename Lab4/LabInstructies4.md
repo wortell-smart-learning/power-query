@@ -60,3 +60,31 @@ In dit lab leer je de oplossing voor deze issues.
 > Deze aanpassingen worden dan doorgevoerd in de functie en toegepast op alle files. 
 > Als je files uit een folder combineert, zoek dan de **Transform Sample File** om aanpassingen op elke file te doen, voordat ze worden samengevoegd.
 
+## Opdracht 3 - Aanname van gelijke volgorde en het generaliseren van de kolomkoppen
+
+Om het issue van de ontbrekende waarden op te lossen mag je aannemen dat de kolomvolgorde in de files hetzelfde is.
+Door deze aanname kun je generieke kolomkoppen gebruiken, zoals Column1, Column2 enz. en de kolomvolgorde gebruiken om de tabellen correct samen te voegen.
+
+1. Selecteer in het *Queries* paneel de **Transform Sample File** en hernoem het tot "Products Sample".
+
+2. Verwijder de laatste stap **Promoted Headers**.
+
+> Door de generieke kolomnamen kun je de correcte data in de samengevoegde tabel zien.
+
+3. Selecteer de query **L4O2 - Products** en merk de volgende foutmelding op: `Expression.Error: The column 'Product' of the table wasn't found.`
+
+4. Verwijder de laatste stap: **Changed Type**. Nu heeft de samengevoegde tabel geen ontbrekende waarden meer.
+
+5. Je kunt nu de eerste rij als kolomkoppen gebruiken (**Use First Row as Headers**).
+
+> De kolomkoppen van de andere tabellen staan nog steeds als rijen in de data. Eerder heb je die eruit gefilterd, maar hadden ze dezelfde naam.
+> Nu is dat niet het geval. Je kunt de rij met kolomkoppen eenvoudiger herkennen door voor het samenvoegen een index aan de data toe te voegen.
+
+6. Selecteer de query **Products Sample**. Selecteer op de **Add Column** tab de transformatie **Index Column**. Voor elke file zal de rij met kolomkoppen de waarde 0 hebben in deze index.
+
+7. Ga terug naar de query **L4O2 - Products** en filter de rijen met kolomkoppen uit de dataset.
+
+8. Verwijder de eerste en laatste kolom. Maak de query robuuster door in de formule van deze **Removed Columns** stap de harde verwijzing naar `"L4O2 - Accessories.xlsx"` te vervangen door `Table.ColumnNames(#"Filtered Rows"){0}`.
+
+> Je kunt nu de query laden naar het rapport om de analyse te starten.
+
