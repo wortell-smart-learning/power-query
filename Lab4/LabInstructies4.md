@@ -88,3 +88,47 @@ Door deze aanname kun je generieke kolomkoppen gebruiken, zoals Column1, Column2
 
 > Je kunt nu de query laden naar het rapport om de analyse te starten.
 
+## Opdracht 4 - Eenvoudige normalisatie d.m.v. Table.TransformColumnNames
+
+Als je niet kunt aannemen dat de kolomvolgorde hetzelfde is voor al je bestanden, dan is normalisatie van kolomnamen een krachtige tool.
+Het is in principe niet meer dan tekstmanipulatie, maar in veel gevallen is dat voldoende om formats van kolomnamen consistent te maken.
+Omdat Power Query case sensitive is, kan het toepassen van lowercase, uppercase of capitalizatie een effectieve stap zijn.
+Als je tabellen vaak veranderen en de kolomnamen van lowercase naar uppercase veranderen en vice versa, dan zal het uniformeren van de case afwijkingen beperken.
+
+Om kolomnamen te bewerken heb je de M functie Table.TransformColumnNames tot je beschikking. 
+Als de laatste stap in de Applied Steps bijvoorbeeld **Vorige stap** heet, dan kun je capitalisatie toepassen met de volgende formule:
+`= Table.TransformColumnNames(#"Vorige stap", Text.Proper)`
+En je kunt underscores door spaties vervangen:
+`= Table.TransformColumnNames(#"Vorige stap", each Replacer.ReplaceText(_,"_"," "))`
+
+In deze opdracht zul je beide formules gaan toepassen bij het samenvoegen van AdventureWorks Producttabellen.
+
+1. Pak de bestanden uit de zip **L4O4 - Products.zip** uit in de folder "C:\Data\L4\L4O4 - Products\". 
+
+> Deze bestanden lijken op de bestanden uit opdracht 2, met kleine verschillen. De kolomkoppen kunnen geuniformeerd worden door te capitaliseren en underscores te vervangen. Daarnaast zijn in **Bikes** de eerste twee kolommen omgewisseld.
+
+2. Start een nieuw Power BI rapport en selecteer op de **Home** tab **Get Data** en selecteer onder de categorie **File** de bron **Folder**.
+
+3. Navigeer naar de juiste folder met de bronbestanden voor **Lab 4**, klik op **Combine** en kies voor **Combine & transform Data**.
+
+4. Selecteer in de **Combine File** dialoog die opent één van de opties in het dropdown menu **Sheet1** en klik op OK.
+
+> Check dat de resulterende query inderdaad leidt onder het symptoom van ontbrekende waarden.
+
+5. Selecteer de **Transform Sample File** en hernoem het tot "Products Sample". Klik dan op het Fx icoon in de *Formula bar*.
+
+> Er wordt een nieuwe stap toegevoegd, **Custom1**, die de volgende formule laat zien: `= #"Promoted Headers"`. 
+> Dit is de variabele die verwijst naar de output van de vorige stap, **Promoted Headers**.
+> Omdat deze variabele de tabel met afwijkende kolomnamen teruggeeft, kun je de functie `Table.TransformColumnNames` erop toepassen met argument `Text.Lower` om kleine letters van de kolomnamen te maken.
+
+6. Wijzig de formule in: `= Table.TransformColumnNames(#"Promoted Headers", Text.Lower)` en druk op Enter. Merk op dat de kolomnamen er nu in kleine letters staan. 
+
+> Als kolomnamen beginnend met hoofdletters jouw voorkeur hebben, vervang `Text.Lower` dan door `Text.Proper`.
+> Je kunt deze transformatie ook toepassen als de kolomnamen van jouw huidige datasets consistent zijn, om problemen in de toekomst te voorkomen.
+
+7. Klik opnieuw op het Fx icoon in de *Formula bar* en wijzig de formule van stap **Custom2** naar `= Table.TransformColumnNames(#"Custom1", each Replacer.ReplaceText(_,"_"," "))`.
+
+8. Klik op Enter en merk op dat de kolomnamen nu spaties bevatten in plaats van underscores. Ze zien er nu gebruiksvriendelijker uit.
+
+9. Selecteer nu query **L4O4 - Products** en verwijder de laatste stap, **Changed Type**. De bestanden zijn nu correct samengevoegd en er zijn geen onverwachte ontbrekende waarden meer.
+
