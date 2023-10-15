@@ -116,3 +116,40 @@ Kun je daar vergelijkbaar met de folder import een query definiëren die dynamis
 
 > Als je kan aannemen dat de toegevoegde data in jouw worksheets altijd nieuwe data betreft, dan gaat de bovenstaande methode goed.
 > Maar wat als dit niet per se het geval hoeft te zijn. Hoe kun je de bovenstaande query aanpassen zodat er niet stees handmatige handelingen nodig zijn?
+
+## Opdracht 4 - Een robuuste aanpak voor het samenvoegen van worksheets
+
+Deze opdracht introduceert nieuwe concepten om de robuustheid van je queries te verbeteren en verversingsfouten te voorkomen.
+De tekortkomingen van de vorige opdracht waren als volgt:
+* In stap 7 werd de eerste rij als kolomkoppen gebruikt en daarbij werden de datatypen automatisch afgeleid. Dit resulteerde in een harde verwijzijng naar "2015" in de formule. Door de formule niet aan te passen vond later de verversingsfout plaats.
+* In stap 9 hernoemde je de kolom, wat ook resulteerde in een harde verwijzing naar "2015", wat ook kon leiden tot een verversingsfout. 
+In deze opdracht ga we deze valkuilen verhelpen.
+
+1. Open de **Products** query in Power Query Editor en verwijder de stap **Changed Type** in het *Applied Steps* paneel. 
+
+2. Selecteer de **Renamed Columns** stap en vervang in de formule de waarde "2015" door `Table.ColumnNames(#"Filtered Rows"){0}`
+
+> In plaats van een directe verwijzing naar de naam van de kolom, vertel je Power Query in M code de naam van de *eerste kolom* te wijzigen.
+> Hoe gebeurde dat precies? Door gebruik te maken van de functie **Table.ColumnNames**. Die geeft de kolomnamen terug van de tabel die als argument wordt meegegeven.
+> Die tabel is in dit geval **#"Filtered Rows"**, het resultaat van de vorige stap in de *Applied Steps*. 
+> Om Power Query naam naar het eerste element in de kolomnamen te doen verwijzen, heb je een index toegevoegd in accolades. 
+> De indicering begint bij 0, zodat {0} naar het eerste element in de lijst verwijst.
+
+3. Om de creatie van de robuuste kolom te voltooien moet je nog de datatypen instellen:
+* Maak van de kolom **Release Year** een **Whole Number**.
+* Maak van de kolom **StandardCost** een **Decimal Number**.
+* Maak van de kolom **ListPrice** een **Decimal Number**.
+
+4. Toets de query door in het onderliggende excel bestand een nieuw eerste worksheet toe te voegen en de preview te verversen.
+
+## Table of Contents
+
+1. [Lab 1 - Een eerste blik op Power Query](../Lab1/LabInstructies1.md)
+2. [Lab 2 - Datapreparatie uitdagingen](../Lab2/LabInstructies2.md)
+3. [Lab 3 - Data samenbrengen uit meerdere bronnen](../Lab3/LabInstructies3.md)
+4. [](../Lab4/LabInstructies4.md)
+5. [](../Lab5/LabInstructies5.md)
+6. [](../Lab6/LabInstructies6.md)
+7. [](../Lab7/LabInstructies7.md)
+8. [](../Lab8/LabInstructies8.md)
+9. [](../Lab9/LabInstructies9.md)
