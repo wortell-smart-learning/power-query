@@ -36,3 +36,27 @@ In dit lab leer je de oplossing voor deze issues.
 > In dit geval is handmatig bijwerken een snelle oplossing. 
 > Some is dit echter niet haalbaar, bijvoorbeeld bij een groot aantal kolommen, of als je de opmaak van de aanlevering niet in de hand hebt. 
 > En als je een folder als input gebruikt, dan werkt handmatig hernoemen van kolommen niet meer, zoals je straks ziet.
+
+## Opdracht 2 - Demonstratie van het symptoom van ontbrekende waarden
+
+1. Pak de bestanden uit de zip **L4O2 - Products.zip** uit in de folder "C:\Data\L4\L4O2 - Products\". Bekijk de bestanden en merk de verschillende kolomkoppen op.
+
+2. Start een nieuw Power BI rapport en selecteer op de **Home** tab **Get Data** en selecteer onder de categorie **File** de bron **Folder**.
+
+3. Navigeer naar de juiste folder met de bronbestanden voor **Lab 4**, klik op **Combine** en kies voor **Combine & transform Data**.
+
+4. Seleceer in de **Combine File** dialoog die opent één van de opties in het dropdown menu **Sheet1** en klik op OK.
+
+> De keuze die je maakt bepaalt de kolomnamen voor de gecombineerde query.
+
+5. Scroll in het *Preview Query* paneel naar beneden tot de **Accessories** overgaan in de **Bikes**. Merk op dat de kolommen **Product**, **StandardCost** en **ListPrice** lege waarden bevatten.
+
+> Om dit issue te verhelpen moet je aan de slag met de sample query. 
+
+6. Selecteer in het *Queries* paneel de **Transform Sample File**. Deze bevat de file die je bij het inlezen van de folder als voorbeeld hebt geselecteerd en laat diens data correct zien.
+
+> Bij het combineren van files uit een folder maakt Power Query verschillende artefacten aan: een query function, een sample query, een file query en een parameter.
+> De transformatie voor elke file staat in de functie. Om deze transformatie te wijzigen kun je de sample file aanpassen. 
+> Deze aanpassingen worden dan doorgevoerd in de functie en toegepast op alle files. 
+> Als je files uit een folder combineert, zoek dan de **Transform Sample File** om aanpassingen op elke file te doen, voordat ze worden samengevoegd.
+
