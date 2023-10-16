@@ -38,7 +38,7 @@ in
 
 6. Selecteer query **Products**, open de **Advanced Editor** en breidt de lijst van tabellen in de functie `Table.Combine` uit met de nieuwe queries. De nieuwe code ziet er dan als volgt uit: `Table.Combine({Source, Bikes, Clothing, Components})`.
 
-7. Sluit de Advanced Editor en check het resultaat van de querystap door te kijken of de vier categorieën beschikbara zijn in de filter control in de kolomkop van de kolom **ParentProductCategoryName**.
+7. Sluit de Advanced Editor en check het resultaat van de querystap door te kijken of de vier categorieën beschikbaar zijn in de filter control in de kolomkop van de kolom **ParentProductCategoryName**.
 
 ## Opdracht 2 - Samenvoegen van files uit een folder
 
@@ -53,7 +53,7 @@ Gelukkig heeft Power Query daar een oplossing voor.
 
 3. Navigeer naar de juiste folder met de bronbestanden voor **Lab 3**, klik op **Combine** en kies voor **Combine & transform Data**.
 
-4. Seleceer in de **Combine File** dialoog die opent **Sheet1** en klik op OK.
+4. Selecteer in de **Combine File** dialoog die opent **Sheet1** en klik op OK.
 
 > In het *Query Preview* paneel zie je in de eerste kolom **Source.Name** de filenaam staan. 
 > Klik op de filter control van de kolom om te verifiëren dat alle files uit de folder zijn opgenomen.
@@ -87,7 +87,7 @@ Kun je daar vergelijkbaar met de folder import een query definiëren die dynamis
 > Heb je verstopte worksheets of ongerelateerde worksheets in jouw workbook dan kun je ze nu eruit filteren.
 > Vervolgens kun je de relevante set samenvoegen.
 
-5. Verwijder de kolommen**Item**, **Kind** en **Hidden**. 
+5. Verwijder de kolommen **Item**, **Kind** en **Hidden**. 
 
 6. Klik in de kolomkop van kolom **Data** op **Expand** (twee pijlen). Klik in de **Expand** dialoog die opent op OK. 
 
@@ -115,13 +115,13 @@ Kun je daar vergelijkbaar met de folder import een query definiëren die dynamis
 15. Doe vervolgens hetzelfde in de stap **Renamed Columns**. De query geeft nu weer een foutloos resultaat. Laad tenslotte de data naar je rapport.
 
 > Als je kan aannemen dat de toegevoegde data in jouw worksheets altijd nieuwe data betreft, dan gaat de bovenstaande methode goed.
-> Maar wat als dit niet per se het geval hoeft te zijn. Hoe kun je de bovenstaande query aanpassen zodat er niet stees handmatige handelingen nodig zijn?
+> Maar wat als dit niet per se het geval hoeft te zijn. Hoe kun je de bovenstaande query aanpassen zodat er niet steeds handmatige handelingen nodig zijn?
 
 ## Opdracht 4 - Een robuuste aanpak voor het samenvoegen van worksheets
 
 Deze opdracht introduceert nieuwe concepten om de robuustheid van je queries te verbeteren en verversingsfouten te voorkomen.
 De tekortkomingen van de vorige opdracht waren als volgt:
-* In stap 7 werd de eerste rij als kolomkoppen gebruikt en daarbij werden de datatypen automatisch afgeleid. Dit resulteerde in een harde verwijzijng naar "2015" in de formule. Door de formule niet aan te passen vond later de verversingsfout plaats.
+* In stap 7 werd de eerste rij als kolomkoppen gebruikt en daarbij werden de datatypen automatisch afgeleid. Dit resulteerde in een harde verwijzing naar "2015" in de formule. Door de formule niet aan te passen vond later de verversingsfout plaats.
 * In stap 9 hernoemde je de kolom, wat ook resulteerde in een harde verwijzing naar "2015", wat ook kon leiden tot een verversingsfout. 
 In deze opdracht ga we deze valkuilen verhelpen.
 
