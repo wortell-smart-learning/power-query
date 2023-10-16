@@ -21,7 +21,9 @@ Het kan ook voorkomen dat kolommen uit de tweede databron worden genegeerd, waar
 In dit lab leer je de oplossing voor deze issues.
 
 
-1. Start een nieuw Power BI rapport, lees workbook **L4O5 - Conversion Table.xlsx** uit **Lab 4** in als Excel workbook en start Power Query Editor.
+1. Start een nieuw Power BI rapport en lees workbook **L4O1 - Bikes.xlsx** uit **Lab 4** in als Excel workbook (selecteer **Load**).
+
+2. Lees **L4O1 - Accessories.xlsx** uit **Lab 4** in als Excel workbook en start Power Query Editor (Selecteer **Transform**).
 
 3. Creëer een nieuwe query waarin beide queries worden samengevoegd (**Append Queries as New**).
 
