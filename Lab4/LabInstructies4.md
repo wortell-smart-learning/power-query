@@ -166,4 +166,4 @@ Werk echter ook de overige opdrachten door om de voor- en nadelen te ondervinden
 
 7. Open het eerste opgeslagen rapport en open de Power Query Editor. 
 
-8. Selecteer de query **Products Sample** en verwijder de laatste stap, **Primoted Headers**.
+8. Selecteer de query **Products Sample** en verwijder de laatste stap, **Promoted Headers**.
