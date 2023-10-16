@@ -183,7 +183,7 @@ Werk echter ook de overige opdrachten door om de voor- en nadelen te ondervinden
 
 12. Voeg een **Conditional Column** toe (tab **Add Column**) en configureer het als volgt:
 
- ![Conditional column invoer](./img/L4)5-conditional-column.jpg)
+ ![Conditional column invoer](./img/L4O5-conditional-column.jpg)
 
 13. Verwijder kolommen **Column1** en **Header_Conversion.Target**.
 
