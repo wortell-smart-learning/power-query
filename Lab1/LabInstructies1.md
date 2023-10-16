@@ -41,29 +41,29 @@ In dit eerste lab importeer je de eerste data als query en passen we eenvoudige 
   - Zoek in de formule in de **Formula bar** naar de volgende code: [Cost] - [Price] en vervang het door [Price] - [Cost]. De volledige formule ziet er nu als volgt uit: \
     = Table.AddColumn(#"Changed Type", "Subtraction", each [Price] - [Cost], Int64.Type)
 
-> Nu we net beginnen met Power Query is het nog niet nodig de syntax in de formula bar te begrijpen. Deze formule is deel van de M taal. In de loop van de training gaan we leren wanneer en hoe deze formules aan te passen, zonder een expert te zijn in de M syntax.
+> Nu we net beginnen met Power Query is het nog niet nodig de syntax in de **Formula bar** te begrijpen. Deze formule is deel van de M taal. In de loop van de training gaan we leren wanneer en hoe deze formules aan te passen, zonder een expert te zijn in de M syntax.
 
 5. Verwijder de **Product Number** kolom door de kolom te selecteren en op de **Delete** toets te drukken. Je kunt ook in de **Home** tab **Remove Columns** selecteren.
 
-6. Probeer de data te filteren. Stel dat je alleen de rijen over wilt houden die de tekst **Mountain** bevatten. Om dit te doen, selecteer je de filter control in de kolomkop van de kolom **Product**. In het filterpaneel dat opent staan de verschillende producten. Selecteer **Text Filters** en dan **Contains...**. Vul in de **Filter Rows** dialoog die opent "Mountain" in en klik op OK.
+6. Probeer de data te filteren. Stel dat je alleen de rijen over wilt houden die de tekst "Mountain" bevatten. Om dit te doen, selecteer je de filter control in de kolomkop van de kolom **Product**. In het filterpaneel dat opent staan de verschillende producten. Selecteer **Text Filters** en dan **Contains...**. Vul in de **Filter Rows** dialoog die opent "Mountain" in en klik op OK.
 
 > Standaard behandelt Power Query tekst op een case-sensitive manier. Als je "mountain" invult bij stap 6 is de resultaatset leeg. Om een case-insensitive filter toe te passen kun je de M formule aanpassen. De originele formule ziet er als volgt uit:
 > = Table.SelectRows(#"Removed Columns", each Text.Contains([Product], "Mountain"))
 > Door Comparer.OrdinalIgnoreCase toe te voegen als derde argument aan de Text.Contains functie kunnen we een case-insensitive filter toepassen. De M formule ziet er dan zo uit:
 > = Table.SelectRows(#"Removed Columns", each Text.Contains([Product], "mountain", Comparer.OrdinalIgnoreCase))
-> Misschien ben je bezorgd dat deze aanpassing op dit moment nog te geavanceerd is, maar de meeste uitdagingen in datapreparatie kun je af zonder de formules te hoeven aanpassen. In een aantal gevallen kan zo'n aanpassing handig zijn, maar je hoeft niet de complete M syntaxt te kennen.
+> Misschien ben je bezorgd dat deze aanpassing op dit moment nog te geavanceerd is, maar de meeste uitdagingen in datapreparatie kun je af zonder de formules te hoeven aanpassen. In een aantal gevallen kan zo'n aanpassing handig zijn, maar je hoeft niet de complete M syntax te kennen.
 
 7. Laad tenslotte de query naar het rapport. Selecteer **Close & Apply** in de **Home** tab. Bouw een eenvoudige visualisatie op de getransformeerde tabel. 
 
 ## Opdracht 3 - De data bewerken
 
-1. Open het bronbestand **L1O1.xlsx** en doe wat aanpassingen. Ververs, nadat je de file hebt opgeslagen, jouw rapport en kijk hoe jouw query omgaat met de gewijzigde data. Om de query te verversen, selecteer **Refresh** in de **Home** tab. Dit is de kern van automatisering en een tijdsbesparend element in Power Query. Je kunt de data eenmalig prepareren en dan een refresh starten om de data automatisch te prepareren op elk moment.
+1. Open het bronbestand **L1O1.xlsx** en doe wat aanpassingen. Ververs, nadat je de file hebt opgeslagen, jouw rapport en kijk hoe jouw query omgaat met de gewijzigde data. Om de query te verversen, selecteer **Refresh** in de **Home** tab. Dit is de kern van automatisering en een tijdbesparend element in Power Query. Je kunt de data eenmalig prepareren en dan een refresh starten om de data automatisch te prepareren op elk moment.
 
 > Je kunt de verversing van de data ook periodiek inplannen als je gebruik maakt van de Power BI service. Lees er meer over in de [documentatie](https://learn.microsoft.com/en-US/power-bi/connect-data/refresh-scheduled-refresh).
 
 2. Bewerk de query aan de hand van de volgende stappen
    - Selecteer **Transform Data** in de **Home** tab.
-   - Selecteer een van de bestaande stappen in **Applied Steps**, pas het aan of verwijder ze en voeg nieuwe stappen toe. Om een stap toe te voegen tussen bestaande stappen, selecteer de stap waarna de nieuwe stap moet komen en selecteer een transformatiestap uit het lint of na rechtklikken op een kolomkop.
+   - Selecteer een van de bestaande stappen in **Applied Steps**, pas het aan of verwijder ze en voeg nieuwe stappen toe. Om een stap toe te voegen tussen bestaande stappen, selecteer de stap waarna de nieuwe stap moet komen en selecteer een transformatiestap uit het lint of na rechtsklikken op een kolomkop.
 
 Je hebt nu de originele brontabel geïmporteerd en getransformeerd. Het rapport met de oplossing is hier te downloaden.
 
