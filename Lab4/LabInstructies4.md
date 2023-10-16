@@ -157,7 +157,7 @@ Werk echter ook de overige opdrachten door om de voor- en nadelen te ondervinden
 
 5. Selecteer de **Transform Sample File** en hernoem het tot "Products Sample". Hernoem query **L4O5 - Products** tot "Appended Products" en klik op **Close & Apply**.
 
-6. Sla het rapport nu drie keer op, als basis voor de drie volgende opdrachten. 
+6. Sla het rapport nu vier keer op, als basis voor het vervolg van opdracht 5 en de volgende opdrachten 6, 7 en 8. 
 
 > De eerste techniek voor normaliseren van kolomnamen is de **Transpose** transformatie op de **Transform** tab.
 > Als je waarden van kolomnamen wilt manipuleren is dat makkelijker als ze verticaal in een kolom staan. Hier komt **Transpose** van pas.
