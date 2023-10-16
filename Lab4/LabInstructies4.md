@@ -210,15 +210,15 @@ Een betere methode om kolomnamen in een kolom te zetten en klaar te zetten voor 
 > De **Index** kolom helpt je later om de tabel in zijn originele staat te herstellen.
 > De kolom **Attribute** bevat de kolomnamen en **Value** de originele waarden, die je gaat bewerken.
 
-3. Hernoem de kolom **Value** tot **Column1**.
+3. Hernoem de kolom **Attribute** tot **Column1**.
 
 4. Merge de tabel met Header_Conversion, zoals beschreven in stap 10-14 van opdracht 5.
 
-5. Selecteer de kolom **Attribute** en selecteer op de **Transform** tab de transformatie **Pivot Column**.
+5. Selecteer de kolom **New Column Names** en selecteer op de **Transform** tab de transformatie **Pivot Column**.
 
-6. Selecteer in de dialoog die opent **New Column Names** als **Values Column** en klap de **Advanced options** open. Selecteer **Don't Aggregate** en klik op OK.
+6. Selecteer in de dialoog die opent **Values** als **Values Column** en klap de **Advanced options** open. Selecteer **Don't Aggregate** en klik op OK.
 
-7. Verwijder de **Index** kolom en **Use First Row as Headers**.
+7. Verwijder de **Index** kolom.
 
 8. Selecteer de query **Appended Products** en controleer het resultaat. Geeft het een foutmelding, verwijder dan de laatste stap, **Changed Type**.
 
