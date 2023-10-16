@@ -127,7 +127,7 @@ In deze opdracht ga we deze valkuilen verhelpen.
 
 1. Open de **Products** query in Power Query Editor en verwijder de stap **Changed Type** in het *Applied Steps* paneel. 
 
-2. Selecteer de **Renamed Columns** stap en vervang in de formule de waarde "2015" door `Table.ColumnNames(#"Filtered Rows"){0}`
+2. Selecteer de **Renamed Columns** stap en vervang in de formule de waarde "2014" door `Table.ColumnNames(#"Filtered Rows"){0}`
 
 > In plaats van een directe verwijzing naar de naam van de kolom, vertel je Power Query in M code de naam van de *eerste kolom* te wijzigen.
 > Hoe gebeurde dat precies? Door gebruik te maken van de functie **Table.ColumnNames**. Die geeft de kolomnamen terug van de tabel die als argument wordt meegegeven.
