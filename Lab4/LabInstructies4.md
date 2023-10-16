@@ -45,7 +45,7 @@ In dit lab leer je de oplossing voor deze issues.
 
 3. Navigeer naar de juiste folder met de bronbestanden voor **Lab 4**, klik op **Combine** en kies voor **Combine & transform Data**.
 
-4. Selecteer in de **Combine File** dialoog die opent één van de opties in het dropdown menu **Sheet1** en klik op OK.
+4. Selecteer in de **Combine File** dialoog die opent **Sheet1** en klik op OK.
 
 > De keuze die je maakt bepaalt de kolomnamen voor de gecombineerde query.
 
