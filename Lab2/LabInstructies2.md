@@ -380,6 +380,6 @@ Je gaat deze dataset splitsen in twee tabellen: één voor de producten en één
 ## Table of Contents
 
 [Lab 1 - Een eerste blik op Power Query](../Lab1/LabInstructies1.md)\
-[Lab 2 - Datapreparatie uitdagingen](../Lab2/LabInstructies2.md)\
+[Lab 2 - Datapreparatie uitdagingen](../Lab2/LabInstructies2.md) (huidige module)\
 [Lab 3 - Data samenbrengen uit meerdere bronnen](../Lab3/LabInstructies3.md)\
 [Lab 4 - Combineren van afwijkende tabellen](../Lab4/LabInstructies4.md)
