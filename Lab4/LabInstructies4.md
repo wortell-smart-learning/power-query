@@ -202,7 +202,7 @@ Werk echter ook de overige opdrachten door om de voor- en nadelen te ondervinden
 
 Een betere methode om kolomnamen in een kolom te zetten en klaar te zetten voor de merge met de conversietabel is de **Unpivot** transformatie.
 
-1. Start met het tweede opgeslagen rapport uit opdracht 4. Voeg een **Index Column** toe aan query **Products Sample**.
+1. Start met het tweede opgeslagen rapport uit opdracht 5. Voeg een **Index Column** toe aan query **Products Sample**.
 
 2. Rechtsklik op de kolomkop van kolom **Index** en selecteer **Unpivot other columns**.
 
@@ -232,7 +232,7 @@ Een optimalere methode om kolomnamen te transformeren tot een kolom en voor te b
 Deze techniek is eenvoudig uit te voeren om een aantal specifieke bestanden te combineren, maar toepassing op een folder is lastiger, aangezien dat leunt op custom functies.
 Gebruik deze techniek alleen als de voorgaande technieken vanwege performanceproblemen geen optie zijn en als je het gebruik van M-technieken (volgende opdracht) wilt voorkomen.
 
-1. Start met het derde opgeslagen rapport uit opdracht 4. Verwijder de laatste stap, **Promoted Headers**, in query **Products Sample**.
+1. Start met het derde opgeslagen rapport uit opdracht 5. Verwijder de laatste stap, **Promoted Headers**, in query **Products Sample**.
 
 2. Rechtsklik op **Products Sample** in het *Queries* paneel en selecteer **Duplicate**. Selecteer dan op de **Home** tab onder **Keep Rows** de transformatie **Keep Top Rows**. Voer in de dialoog die opent de waarde "1" in en klik op OK.
 
