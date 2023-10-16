@@ -293,7 +293,43 @@ Gebruik deze techniek alleen als de voorgaande technieken vanwege performancepro
 
 15. Controleer in de query **Applied Products** of de kolomvolgorde van de **Bikes** nu wel correct wordt verwerkt.
 
+## Opdracht 8 - M gebruiken om kolomnamen te normaliseren
 
+Deze opdracht laat de meest efficiënte manier zien om een conversietabel toe te passen en kolomnamen te normaliseren.
+Je zult M gebruiken om de conversie direct op de kolomnamen toe te passen.
+In een eerdere opdracht heb je al de M functie `Table.TransformColumnNames` toegepast. 
+Nu zul je een custom functie creëren die de normalisatie toepast.
+Om dit te ondersteunen ga je eerst de opmaak van de conversietabel aanpassen met **Transpose**, om **Source** in de kolomkoppen te zetten en **Target** als waarden in de eerste rij.
+
+1. Start met het vierde opgeslagen rapport uit opdracht 5, selecteer query **Header_Conversion**, transponeer het en gebruik de eerste rij als kolomkoppen.
+
+2. Verwijder de laatste stap, **Changed Type**. 
+
+> Deze stap wordt automatisch toegevoegd en heeft hier geen toegevoegde waarde.
+> Laat je het erin, dan kunnen toekomstige aanpassingen aan de waarden in **Source** zorgen voor fouten.
+
+3. Selecteer de query **Products Sample** en klik op het Fx icoontje in de *Formula bar*.
+
+4. Pas de formule aan tot het volgende:
+
+`= Table.TransformColumnNames(#"Promoted Headers", each try Table.Column(Header_Conversion, _){0} otherwise _)`
+
+5. Druk op Enter en controleer de kolomnamen in de preview. Zij zijn genormaliseerd. Ook het resultaat in **Appended Products** ziet er goed uit.
+
+> Laten we de formule eens beter bekijken en inzoomen op het tweede deel: `each try Table.Column(Header_Conversion, _){0} otherwise _`.
+> De termen `each` en `_` zijn shortcuts voor functies. De functie Table.TransformColumnNames verwacht een functie als tweede argument.
+> Het gebruik van `each _` past die functie toe op alle kolomnamen. 
+
+> Om een **kolom** in query **Header_Conversion** te benaderen, gebruik je de volgende formule: `Header_Conversion[kolom]`.
+> In dit geval wordt de kolomnaam als input parameter meegegeven aan de functie in de vorm van de underscore. 
+> Om de kolomnaam in Header_Conversion op te halen voor elk van de kolommen (als list) kun je de volgende formule gebruiken: `each Table.Column(Header_Conversion, _)`.
+> Met `{0}` kun je de cel van de eerste rij ophalen voor die kolom: `each Table.Column(Header_Conversion, _){0}`.
+> Onthou dat alles in M een zero-based index is, dus gebruik 0 in plaats van 1 om de eerste cel aan te halen.
+
+> Waarom voeg je dan nog de try/otherwise eraan toe? Weet je nog dat de conversielijst niet uitputtend is opgesteld, maar alleen afwijkende kolomnamen bevat. 
+> Als de **Source** waarde niet gevonden wordt in **Header_Conversion**, dan gaat het `try` deel mis en wordt dat afgevangen met het `otherwise` deel, die de originele kolomnaam gebruikt
+> In natuurlijke taal is de formule zo te lezen: Neem de tabel die het resultaat is van de Promoted Headers stap en transformeer de kolomnamen aan de hand van de volgende regel:
+> Probeer elke kolomnaam in de conversietabel te vinden en geef de corresponderende waarde uit de cel terug. Lukt dat niet, gebruik dan de kolomnaam uit Promoted Headers.
 
 ## Table of Contents
 
