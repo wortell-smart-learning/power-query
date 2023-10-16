@@ -226,3 +226,9 @@ Een betere methode om kolomnamen in een kolom te zetten en klaar te zetten voor 
 > Power Query moet door de hele dataset gaan om unieke waarden in de kolom **Attribute** te zoeken en daar nieuwe kolommen van maken.
 > Deze methode is daarom niet ideaal als je grote datasets hebt en tabellen wilt combineren op een geoptimaliseerde manier met een korte ververstijd.
 
+## Table of Contents
+
+1. [Lab 1 - Een eerste blik op Power Query](../Lab1/LabInstructies1.md)
+2. [Lab 2 - Datapreparatie uitdagingen](../Lab2/LabInstructies2.md)
+3. [Lab 3 - Data samenbrengen uit meerdere bronnen](../Lab3/LabInstructies3.md)
+4. [Lab 4 - Combineren van afwijkende tabellen](../Lab4/LabInstructies4.md)
