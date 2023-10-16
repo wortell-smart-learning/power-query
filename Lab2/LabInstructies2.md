@@ -22,10 +22,10 @@ In dit tweede lab leer je Power Query in te zetten om basale uitdagingen in data
 
 6. Selecteer onder de **Transform** tab het dropdown menu **Split Column** en selecteer **By Delimiter**. Hetzelfde kun je doen door te rechtsklikken op de kolomkop **Product Number** en vervolgens **Split Column** en **By Delimiter** te kiezen.
 
-7. De default settings zijn correct voor het splitsen van deze kolom, maar check voor je **OK** drukt nog even de instellingen. 
-	- De Custom optie is geselecteerd en het streepje als scheidingsteken. Power Query heeft dit goed beoordeeld op basis van de waarden in de kolom.
+7. De default instellingen zijn correct voor het splitsen van deze kolom, maar check voor je **OK** drukt nog even de instellingen. 
+	- De **Custom** optie is geselecteerd en het streepje als scheidingsteken. Power Query heeft dit goed beoordeeld op basis van de waarden in de kolom.
 	- **Each occurence of this delimiter** is geselecteerd omdat er meerdere scheidingstekens zijn gevonden per waarde.
-	- Als je de Advanced options openklikt, zie je dat Power Query heeft gedetecteerd dat de waarde van **Product Number** in vier kolommen kan worden gesplitst.
+	- Als je de Advanced options openklapt, zie je dat Power Query heeft gedetecteerd dat de waarde van **Product Number** in vier kolommen kan worden gesplitst.
 	- Het **Quote Character** is ook ingesteld. Scheidingstekens (in dit geval streepje) die deel zijn van een tekst en niet als scheidingstekens moeten worden behandeld kunnen met de **Quote Character** correct worden geïnterpreteerd.
 	
 8. Na het sluiten van de dialoog zie je de vier nieuwe kolommen (Product Number.1 t/m 4)in het *Preview* paneel. Hernoem ze tot **Category Code**, **Short Product Number**, **Size** en **Color**. 
@@ -42,7 +42,7 @@ In Opdracht 1 hebben we de codes voor Category en Color geëxtraheerd uit een sa
 
 > In het *Preview* paneel is een nieuwe **Categories** kolom toegevoegd met tabelobjecten als waarden.
 
-3. Open de kolom door in de kolomop op de twee pijltjes te klikken. Verwijder in de **Expand** dialoog de vinkjes voor **Category Code** en **Use original column name as prefix** en klik op OK. De **Categories** kolom is vervangen door een nieuwe kolom **Product Category Name** met de overeenkomende waarden in elke rij.
+3. **Expand** de kolom door in de kolom op de twee pijltjes te klikken. Verwijder in de **Expand** dialoog de vinkjes voor **Category Code** en **Use original column name as prefix** en klik op OK. De **Categories** kolom is vervangen door een nieuwe kolom **Product Category Name** met de overeenkomende waarden in elke rij.
 
 4. Nu je de **Product Category Name** ter beschikking hebt, kun je de **Category Code** verwijderen door de kolom te selecteren en op de Delete toets te drukken.
 
@@ -75,7 +75,7 @@ In opdracht 1 heb je het Product Number gesplitst in vier elementen. Stel nu dat
 
 3. In de **Add Column from Examples** dialoog wordt je gevraagd de voorbeeldwaarden aan te leveren. De af te leiden kolom staat rechts in beeld. Hernoem deze kolom naar **Size**.
 
-4. Dubbelklik de eerste lege cel in de kolom **Size** (een dropdown menu geeft wat suggesties voor de vulling). Vul de cel met de waarde "S" (zonder quotes), de derde waarde in "VE-C304-S-BE". Druk nu op Enter en Power Query vult de kolom met alle afgeleidde waarden. In het blok boven de kolomkoppen staat de formule die hiervoor is gebruikt.
+4. Dubbelklik de eerste lege cel in de kolom **Size** (een dropdown menu geeft wat suggesties voor de vulling). Vul de cel met de waarde "S" (zonder quotes), de derde waarde in "VE-C304-S-BE". Druk nu op Enter en Power Query vult de kolom met alle afgeleide waarden. In het blok boven de kolomkoppen staat de formule die hiervoor is gebruikt.
 
 5. Klik op Ctrl+Enter of OK om de kolom aan te maken. Het *Preview* paneel laat de nieuwe kolom zien, gevuld zoals verwacht. 
 
@@ -92,7 +92,7 @@ In stap 1 t/m 4 gebruik je de features voor foutafhandeling in Power Query. Vana
 
 2. Hernoem de kolom **Size - Numbers** en verander het datatype door aan de linkerkant van de kolomkop op ABC te klikken en in het dropdown menu **Whole Number** te selecteren.
 
-> Je ziet nu Errorwaarden staan in alle rijen met tekstuele waarden voor **Size**, maar je wil alleen met numerieke waarden werken, dus ga je de Errorwaarden vervangen met nulls.
+> Je ziet nu Errorwaarden staan in alle rijen met tekstuele waarden voor **Size**, maar je wil alleen met numerieke waarden werken, dus ga je de Errorwaarden vervangen met lege waarden.
 
 3. Selecteer de kolom **Size - Numbers**, klik in de **Transform** tab op het dropdown menu van **Replace Values** en kies **Replace Errors**. Een snellere manier om dit te kiezen is te rechtsklikken op de kolomkop en **Replace Errors** te selecteren.
 
@@ -126,7 +126,7 @@ In stap 1 t/m 4 gebruik je de features voor foutafhandeling in Power Query. Vana
 
 15. Dubbelklik op de stap **Column from Examples** in het *Applied Steps* paneel om de afleidingscondities te reviewen. Sluit dan de dialoog.
 
-16. Bekijk de *formula bar* voor de gegenereerde M code.
+16. Bekijk de *Formula bar* voor de gegenereerde M code.
 
 ## Opdracht 5 - Informatie halen uit tekstkolommen
 
@@ -134,7 +134,7 @@ In een voorgaande opdracht haalde je informatie uit een samengestelde kolom door
 In deze opdracht ga je een veel voorkomende uitdaging uitwerken: betekenisvolle data halen uit ongestructureerde tekst. 
 Deze uitdaging kan eenvoudig  zijn als je data redelijk consistent is, maar je hebt een breder arsenaal aan technieken nodig voor inconsistente data.
 
-In deze opdracht willen we de hyperlinks uit een dataset van Facebook posts extraheren. Sommige hyperlinks zijn makkelijk te herkennen doordat ze beginnen met "http://", maar er zijn ook veel afwijkende waarden die niet eenvoudig te addresseren zijn.
+In deze opdracht willen we de hyperlinks uit een dataset van Facebook posts extraheren. Sommige hyperlinks zijn makkelijk te herkennen doordat ze beginnen met "http://", maar er zijn ook veel afwijkende waarden die niet eenvoudig te adresseren zijn.
 
 1. Start een nieuw Power BI rapport en lees workbook **L2O2.xlsx** uit **Lab 2** in als Excel workbook en start de Power Query Editor.
 
@@ -142,7 +142,7 @@ In deze opdracht willen we de hyperlinks uit een dataset van Facebook posts extr
 
 > Om de hyperlink uit de nieuwe kolom te extraheren kunnen we de prefix "http://" gebruiken als scheidingsteken en de kolom splitsen. 
 
-3. Selecteer de **Hyperlink** kolmo, open op de **Transform** tab het **Split Column** dropdown menu en selecteer **By Delimiter**.
+3. Selecteer de **Hyperlink** kolom, open op de **Transform** tab het **Split Column** dropdown menu en selecteer **By Delimiter**.
 
 4. Vul onder **Custom** de waarde "http://" (zonder quotes) in. Selecteer de **Left-most delimiter** en klik op OK.
 
@@ -152,10 +152,10 @@ In deze opdracht willen we de hyperlinks uit een dataset van Facebook posts extr
 
 > In de *Formula bar* zie je de M code, die gebruik maakt van de functie **SplitTextByEachDelimiter**. Om meerdere scheidingstekens te kunnen gebruiken heb je de functie **SplitTextByAnyDelimiter** nodig.
 
-6. Zoek in de formule naar `SplitTextBy**Each**Delimiter({"http://"}` en wijzig het naar `SplitTextBy**Any**Delimiter({"http://","https://","www."}`.
+6. Zoek in de formule naar `SplitTextByEachDelimiter({"http://"}` en wijzig het naar `SplitTextByAnyDelimiter({"http://","https://","www."}`.
 
 > De kolom **Hyperlink.2** bevat nu meer herkende hyperlinks. Er zijn echter resultaten met tekst achter de hyperlink, zoals rij 15. 
-> Om deze tekst te verwijderen mag je aannemen dat een hyperlink eindigd met een spatie en dit de kolom met dat scheidingsteken splitsen.
+> Om deze tekst te verwijderen mag je aannemen dat een hyperlink eindigt met een spatie en dit de kolom met dat scheidingsteken splitsen.
 
 7. Ga naar de laatste stap in het *Applied Steps* paneel. Selecteer de kolom **Hyperlink.2** en splits het met de spatie als scheidingsteken op de **Left-most delimiter**.
 
@@ -165,7 +165,7 @@ In deze opdracht willen we de hyperlinks uit een dataset van Facebook posts extr
 > Het blijkt de hyperlink "aka.ms/containersebook" te zijn. Gebruiken we echter "aka.ms" als scheidingsteken, dan verliezen we waardevolle informatie in de hyperlink.
 > Bij "www." verloren we ook informatie, maar dat is een ingecalculeerd risico, omdat de hyperlinks "www.microsoft.com" en "microsoft.com" naar dezelfde website verwijzen.
 > Je moet een manier vinden om te splitsen op "aka.ms" en dan het domein te herstellen, maar alleen voor de relevante rijen.
-> Binnenkort leer je dat te doen met een **Conditional Column**. Maar eerst voeg je "aka.ms" toe aan de lijst met delimiters.
+> Binnenkort leer je dat te doen met een **Conditional Column**. Maar eerst voeg je "aka.ms" toe aan de lijst met scheidingstekens.
 
 9. Selecteer opnieuw de stap **Split Column by Delimiters** die je in deze opdracht in stap 6 hebt aangepast. Voeg "aka.ms" toe aan de lijst met scheidingstekens. 
 
@@ -232,7 +232,7 @@ In deze opdracht willen we de hyperlinks uit een dataset van Facebook posts extr
 
 25. Selecteer de kolom **Hyperlink** en selecteer op de *Home* tab **Replace Values**.
 
-26. Voer in de **Replace Values** dialoog die opent onder **Value to find* de waarde "http://" in. Laat de **Replace with** waarde leeg.
+26. Voer in de **Replace Values** dialoog die opent onder **Value to find** de waarde "http://" in. Laat de **Replace with** waarde leeg.
 
 27. klap de **Advanced options** open en vink **Match entire cell contents** aan.
 
@@ -246,7 +246,7 @@ In deze opdracht willen we de hyperlinks uit een dataset van Facebook posts extr
 
 ## Opdracht 6 - Omgaan met meerdere datumformats
 
-Een van de vaak voorkomende uitdagingen in dataprepararatie is omgaan met datatypen. 
+Een van de vaak voorkomende uitdagingen in datapreparatie is omgaan met datatypen. 
 Tekstkolommen zijn eenvoudig, maar numerieke en datumkolommen kunnen complex zijn.
 Je begint met het converteren van tekst naar datums en vervolgt met het omgaan met foutieve datums.
 Tenslotte leer je hoe specifieke datum- en tijdselementen uit datum/tijd waarden te extraheren.
@@ -266,7 +266,7 @@ Tenslotte leer je hoe specifieke datum- en tijdselementen uit datum/tijd waarden
 
 3. Lees workbook **L2O6.xlsx** uit **Lab 2** in als Excel workbook en start Power Query Editor.
 
-4. Pas het datatype van kolom **Release Date** aan naar **Date**. Check of alle rijen dezelfde datum katen zien.
+4. Pas het datatype van kolom **Release Date** aan naar **Date**. Check of alle rijen dezelfde datum laten zien.
 
 > Power Query converteert automatisch de verschillende datum formats naar het nieuwe datatype bij de juiste regionale instellingen.
 
@@ -298,7 +298,7 @@ else
 
 4. Verander het datatype van de kolom naar **Date** en verwijder de drie **Release Date** kolommen.
 
-5. Rechtskli om de **Products** query te dupliceren in het *Queries* paneel op **Products** en selecteer **Duplicate**.
+5. Rechtsklik om de **Products** query te dupliceren in het *Queries* paneel op **Products** en selecteer **Duplicate**.
 
 6. Selecteer de nieuwe **Products (2)** query en verwijder in het *Applied Steps* paneel de laatste drie stappen (inclusief **Added Custom**).
 
@@ -308,7 +308,7 @@ else
 
 > Je hebt beide formats nu in verschillende kolommen beschikbaar. Voor elke rij wil je nu één van beide kiezen.
 
-9. Selecteer op de **Add Column** tab de transformatie **Conditional Column** en voer de volgende waarden in in de dialoog die opent.
+9. Selecteer op de **Add Column** tab de transformatie **Conditional Column** en voer in de dialoog die opent de volgende waarden in:
 
  ![Conditional column invoer](./img/L2O7-conditional-column.jpg)
 
