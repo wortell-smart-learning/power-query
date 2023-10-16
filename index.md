@@ -1,5 +1,3 @@
-# Power Query
-
 Welkom bij de [Wortell Smart Learning](https://www.wortell.nl/nl/smart-learning) training "Power Query"!
 
 ## Table of Contents
