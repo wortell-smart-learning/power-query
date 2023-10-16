@@ -198,4 +198,27 @@ Werk echter ook de overige opdrachten door om de voor- en nadelen te ondervinden
 > Deze methode werkt voor kleine datasets. Voor tabellen met meer dan 15.000 rijen kan het zorgen voor trage imports, hoog memory-gebruik of zelfs errors.
 > Voor grotere sets heb je een andere aanpak nodig.
 
+## Opdracht 6 - Unpivot, Merge en Pivot terug
+
+Een betere methode om kolomnamen in een kolom te zetten en klaar te zetten voor de merge met de conversietabel is de **Unpivot** transformatie.
+
+1. Start met het tweede opgeslagen rapport uit opdracht 4. Voeg een **Index Column** toe aan query **Products Sample**.
+
+2. Rechtsklik op de kolomkop van kolom **Index** en selecteer **Unpivot other columns**.
+
+> Power Query creëert een nieuwe tabel met drie kolommen: **Index**, **Attribute** en **Value**.
+> De **Index** kolom helpt je later om de tabel in zijn originele staat te herstellen.
+> De kolom **Attribute** bevat de kolomnamen en **Value** de originele waarden, die je gaat bewerken.
+
+3. Hernoem de kolom **Value** tot **Column1**.
+
+4. Merge de tabel met Header_Conversion, zoals beschreven in stap 10-14 van opdracht 5.
+
+5. Selecteer de kolom **Attribute** en selecteer op de **Transform** tab de transformatie **Pivot Column**.
+
+6. Selecteer in de dialoog die opent **New Column Names** als **Values Column** en klap de **Advanced options** open. Selecteer **Don't Aggregate** en klik op OK.
+
+7. Verwijder de **Index** kolom en **Use First Row as Headers**.
+
+8. Selecteer de query **Appended Products** en controleer het resultaat. Geeft het een foutmelding, verwijder dan de laatste stap, **Changed Type**.
 
