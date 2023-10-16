@@ -226,6 +226,75 @@ Een betere methode om kolomnamen in een kolom te zetten en klaar te zetten voor 
 > Power Query moet door de hele dataset gaan om unieke waarden in de kolom **Attribute** te zoeken en daar nieuwe kolommen van maken.
 > Deze methode is daarom niet ideaal als je grote datasets hebt en tabellen wilt combineren op een geoptimaliseerde manier met een korte ververstijd.
 
+## Opdracht 7 - Transponeren van alleen de kolomnamen
+
+Een optimalere methode om kolomnamen te transformeren tot een kolom en voor te bereiden voor de merge met de conversietabel is om de kolomnamen apart te transponeren.
+Deze techniek is eenvoudig uit te voeren om een aantal specifieke bestanden te combineren, maar toepassing op een folder is lastiger, aangezien dat leunt op custom functies.
+Gebruik deze techniek alleen als de voorgaande technieken vanwege performanceproblemen geen optie zijn en als je het gebruik van M-technieken (volgende opdracht) wilt voorkomen.
+
+1. Start met het derde opgeslagen rapport uit opdracht 4. Verwijder de laatste stap, **Promoted Headers**, in query **Products Sample**.
+
+2. Rechtsklik op **Products Sample** in het *Queries* paneel en selecteer **Duplicate**. Selecteer dan op de **Home** tab onder **Keep Rows** de transformatie **Keep Top Rows**. Voer in de dialoog die opent de waarde "1" in en klik op OK.
+
+> De transformaties die je uitvoert op de originele Sample file worden in de query functie uitgevoerd op alle bestanden in de folder. 
+> Dit geldt echter niet voor het het duplicaat. Hiervoor moet je de nieuwe query nog verbinden met de transformatiestappen in de Sample query.
+> Dat doe je aan het einde van deze opdracht.
+
+3. Transponeer de rij naar een kolom en merge de tabel met Header_Conversion.
+
+4. Voeg een **Index Column** toe. Dit garandeert dat de kolomvolgorde niet zal veranderen.
+
+5. **Expand** de kolom **Header_Conversion** en selecteer alleen **Target**.
+
+6. Voeg de **Conditional Column** toe, zoals beschreven in stap 12 van opdracht 5.
+
+7. Controleer dat de kolom **Index** nog steeds gesorteerd staat. Zo niet, sorteer dan oplopend. 
+
+8. Verwijder alle kolommen, behalve **New Column Names**. Transponeer de kolom terug naar een rij.
+
+> De normalisatie is nu toegepast. Wat rest is het samenvoegen van de queries.
+
+9. Selecteer de query **Products Sample**, selecteer op de **Home** tab onder **Remove Rows** de transformatie **Remove Top Rows**. Geef als waarde "1" mee om de eerste rij met afwijkende kolomnamen te verwijderen.
+
+10. Selecteer in de **Home** tab de transformatie **Append Queries** en kies in de dialoog die opent **Product Sample (2)**.
+
+> De kolomnamen staan nu onderaan de data. In de formule kunnen we dit verbeteren.
+
+11. Wissel in de formule de twee argumenten om: `= Table.Combine({#"Products Sample (2)", #"Removed Top Rows"})`. Promoveer nu de eerste rij tot kolomkoppen en verwijder de laatste stap, **Changed Type**.
+
+> Het verwijderen van de laatste stap is belangrijk, omdat de Size kolom in bestand Accessories alleen nummers bevat, waardoor Power Query het datatype interpreteert als Whole Number. 
+> Voor andere bestanden zijn alfanumerieke Sizes echter valide waarden, wat zou leiden tot errors in de kolom **Size**. 
+
+12. Selecteer de query **Appended Products** en controleer het resultaat. Geeft het een foutmelding, verwijder dan de laatste stap, **Changed Type**.
+
+> Als je door de preview scrolt en bij **Bikes** aankomt, valt het op dat de waarden van kolommen **Name** en **Product Number** verwisseld zijn. 
+> De normalisatie is dus niet correct uitgevoerd, maar wat is er gebeurt?
+> Het goede nieuws is dat de query **Products Sample (2)** goed wordt uitgevoerd op één bestand. 
+> Het slechte nieuws is dat die kolomnaamnormalisatie wordt hergebruikt voor alle bestanden in de folder.
+> Als je de eerste stap in **Product Sample (2)** selecteert, dan kun je in de formule zien dat de excel wordt ingelezen uit de parameter **Parameter1**.
+> Als je die parameter selecteert in het *Queries* paneel, dan zie je daar de waarde **Sample File**.
+> Het selecteren van de query **Sample File** laat zien dat het nu naar het bestand van Accessories verwijst. 
+> In dit bestand is de kolomvolgorde anders dan in het bestand met Bikes, vandaar dat de normalisatie niet correct verloopt. 
+> Om dit te verhelpen moet je leren hoe je de logica uit **Product Sample (2)** kan hergebruiken voor alle bestanden in de folder.
+> Je moet een manier vinden om er een herbruikbare query van te maken, die bestanden als parameter van **Product Sample** meekrijgt. 
+> Om dit te doen kun je van **Product Sample (2)** een functie maken, die voor elk bestand in de folder kan worden aangeroepen.
+
+13. Rechtsklik op query **Product Sample (2)** en selecteer **Create Function**. Geef het de naam "FnNormalizeFunctionNames".
+
+> Deze functie kun je nu aanroepen binnen de **Products Sample** query in plaats van de query **Products Sample (2)**.
+
+14. Selecteer de stap **Appended query** in query **Products Sample**. Vervang de verwijzing naar **Products Sample (2)** met de aanroep van de functie als volgt:
+
+`= Table.Combine({FnNormalizeFunctionNames(Parameter1), #"Removed Top Rows"})`
+
+> De functie ontvangt de inhoud van een excel workbook uit de folder als argument en geeft de genormaliseerde kolommen terug. 
+> De tabel #"Removed Top Rows" is de laatste stap in **Products Sample** voor de append. 
+> Terwijl Power Query itereert over de bestanden in de folder krijgt **Parameter1** steeds een nieuwe waarde.
+
+15. Controleer in de query **Applied Products** of de kolomvolgorde van de **Bikes** nu wel correct wordt verwerkt.
+
+
+
 ## Table of Contents
 
 1. [Lab 1 - Een eerste blik op Power Query](../Lab1/LabInstructies1.md)
