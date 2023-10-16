@@ -222,3 +222,7 @@ Een betere methode om kolomnamen in een kolom te zetten en klaar te zetten voor 
 
 8. Selecteer de query **Appended Products** en controleer het resultaat. Geeft het een foutmelding, verwijder dan de laatste stap, **Changed Type**.
 
+> Hoewel deze techniek op grote datasets kan worden toegepast, kan de **Pivot** techniek die gebruikt wordt om de tabel weer terug te draaien veel geheugen kosten. 
+> Power Query moet door de hele dataset gaan om unieke waarden in de kolom **Attribute** te zoeken en daar nieuwe kolommen van maken.
+> Deze methode is daarom niet ideaal als je grote datasets hebt en tabellen wilt combineren op een geoptimaliseerde manier met een korte ververstijd.
+
