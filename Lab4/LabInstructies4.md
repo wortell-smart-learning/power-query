@@ -166,4 +166,36 @@ Werk echter ook de overige opdrachten door om de voor- en nadelen te ondervinden
 
 7. Open het eerste opgeslagen rapport en open de Power Query Editor. 
 
-8. Selecteer de query **Products Sample** en verwijder de laatste stap, **Promoted Headers**.
+8. Selecteer de query **Products Sample** en verwijder de laatste stap, **Promoted Headers**. De headers staan nu in de eerste rij.
+
+9. Selecteer op de **Transform** tab de transformatie **Transpose**. **Column1** bevat nu de te normaliseren kolomnamen.
+
+> Je gaat nu de conversietabel opnemen in de getransponeerde tabel om de afwijkende kolomnamen aan te passen.
+
+10. Selecteer op de **Home** tab de transactie **Merge Queries**. Selecteer in de dialoog die opent **Column1** onder **Products Sample** en selecteer in het dropdown menu **Header_Conversion**. Selecteer daaronder vervolgens kolom **Source**. Controleer dat de Join Kind op **Left Outer** staat en klik op OK.
+
+> **Header_Conversion** is nu toegevoegd aan de **Product Sample** query met als waarden een tabelobject. 
+
+11. Klik op de twee pijltjes in de kolomkop. Daarmee kun je een selectie maken uit het tabelobject. Verwijder het vinkje voor **Source** en klik op OK.
+
+> Nieuwe kolom **Header_Conversion.Target** bevat nu waarden waar de originele kolommen afwijken en is leeg als de kolomnamen kloppen.
+> Met een conditionele kolom kun je beiden samenvoegen.
+
+12. Voeg een **Conditional Column** toe (tab **Add Column**) en configureer het als volgt:
+
+ ![Conditional column invoer](./img/L4)5-conditional-column.jpg)
+
+13. Verwijder kolommen **Column1** en **Header_Conversion.Target**.
+
+14. Verplaats de kolom **New Column Names** naar de eerste (meest linkse) plaats. Dit kan door drag & drop, maar bij een brede query is het handiger om op tab **Transform** onder het dropdown menu **Move** te kiezen voor **To Beginning**.
+
+> Nu we de correcte kolomnamen in de eerste kolom hebben staan kun je het transponeren uit stap 9 weer omkeren en de eerste rij als kolomkoppen gebruiken.
+
+15. **Transpose** de query en **Use First Row as Headers**.
+
+16. Selecteer de query **Appended Products** en controleer het resultaat. Geeft het een foutmelding, verwijder dan de laatste stap, **Changed Type**.
+
+> Deze methode werkt voor kleine datasets. Voor tabellen met meer dan 15.000 rijen kan het zorgen voor trage imports, hoog memory-gebruik of zelfs errors.
+> Voor grotere sets heb je een andere aanpak nodig.
+
+
