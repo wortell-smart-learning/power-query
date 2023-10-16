@@ -364,7 +364,7 @@ Je gaat deze dataset splitsen in twee tabellen: één voor de producten en één
 
 5. Vink alleen de kolommen **ProductCodeNew** en **Colors** aan.
 
-6. Selecteer de kolom **Colors**, open op de **Transorm** tab het dropdownmenu **Split Column** en kies voor **By Delimiter**.
+6. Selecteer de kolom **Colors**, open op de **Transform** tab het dropdownmenu **Split Column** en kies voor **By Delimiter**.
 
 7. Klap de **Advanced options** open, kies bij **Split into** voor **Rows** en klik op OK.
 
