@@ -23,7 +23,7 @@ In dit lab leer je de oplossing voor deze issues.
 
 1. Start een nieuw Power BI rapport, lees workbook **L4O5 - Conversion Table.xlsx** uit **Lab 4** in als Excel workbook en start Power Query Editor.
 
-3. Creër een nieuwe query waarin beide queries worden samengevoegd (**Append Queries as New**).
+3. Creëer een nieuwe query waarin beide queries worden samengevoegd (**Append Queries as New**).
 
 > Als je de preview bekijkt van de nieuwe query zie je zowel de kolommen **StandardCost** uit **Accessories** als **Cost** uit **Bikes** met de resulterende lege waarden.
 > Het is je misschien opgevallen dat je de categorie kwijt bent na de samenvoeging. 
@@ -32,7 +32,7 @@ In dit lab leer je de oplossing voor deze issues.
 4. Selecteer de **Accessories** query en hernoem de kolom **StandardCost** tot "Cost". Controleer het gevolg in query **Append1**.
 
 > In dit geval is handmatig bijwerken een snelle oplossing. 
-> Some is dit echter niet haalbaar, bijvoorbeeld bij een groot aantal kolommen, of als je de opmaak van de aanlevering niet in de hand hebt. 
+> Soms is dit echter niet haalbaar, bijvoorbeeld bij een groot aantal kolommen, of als je de opmaak van de aanlevering niet in de hand hebt. 
 > En als je een folder als input gebruikt, dan werkt handmatig hernoemen van kolommen niet meer, zoals je straks ziet.
 
 ## Opdracht 2 - Demonstratie van het symptoom van ontbrekende waarden
@@ -90,11 +90,11 @@ Door deze aanname kun je generieke kolomkoppen gebruiken, zoals Column1, Column2
 
 Als je niet kunt aannemen dat de kolomvolgorde hetzelfde is voor al je bestanden, dan is normalisatie van kolomnamen een krachtige tool.
 Het is in principe niet meer dan tekstmanipulatie, maar in veel gevallen is dat voldoende om formats van kolomnamen consistent te maken.
-Omdat Power Query case sensitive is, kan het toepassen van lowercase, uppercase of capitalizatie een effectieve stap zijn.
+Omdat Power Query case sensitive is, kan het toepassen van lowercase, uppercase of kapitalisatie een effectieve stap zijn.
 Als je tabellen vaak veranderen en de kolomnamen van lowercase naar uppercase veranderen en vice versa, dan zal het uniformeren van de case afwijkingen beperken.
 
 Om kolomnamen te bewerken heb je de M functie Table.TransformColumnNames tot je beschikking. 
-Als de laatste stap in de Applied Steps bijvoorbeeld **Vorige stap** heet, dan kun je capitalisatie toepassen met de volgende formule:
+Als de laatste stap in de Applied Steps bijvoorbeeld **Vorige stap** heet, dan kun je kapitalisatie toepassen met de volgende formule:
 `= Table.TransformColumnNames(#"Vorige stap", Text.Proper)`
 En je kunt underscores door spaties vervangen:
 `= Table.TransformColumnNames(#"Vorige stap", each Replacer.ReplaceText(_,"_"," "))`
@@ -103,7 +103,7 @@ In deze opdracht zul je beide formules gaan toepassen bij het samenvoegen van Ad
 
 1. Pak de bestanden uit de zip **L4O4 - Products.zip** uit in de folder "C:\Data\L4\L4O4 - Products\". 
 
-> Deze bestanden lijken op de bestanden uit opdracht 2, met kleine verschillen. De kolomkoppen kunnen geuniformeerd worden door te capitaliseren en underscores te vervangen. Daarnaast zijn in **Bikes** de eerste twee kolommen omgewisseld.
+> Deze bestanden lijken op de bestanden uit opdracht 2, met kleine verschillen. De kolomkoppen kunnen geüniformeerd worden door te kapitaliseren en underscores te vervangen. Daarnaast zijn in **Bikes** de eerste twee kolommen omgewisseld.
 
 2. Start een nieuw Power BI rapport en selecteer op de **Home** tab **Get Data** en selecteer onder de categorie **File** de bron **Folder**.
 
@@ -132,7 +132,7 @@ In deze opdracht zul je beide formules gaan toepassen bij het samenvoegen van Ad
 
 ## Opdracht 5 - Transponeren met een conversietabel
 
-Als eenvoudige tekstmanupulatie niet afdoende is om kolomnamen te consolideren, dan kun je gebruik maken van een conversietabel.
+Als eenvoudige tekstmanipulatie niet afdoende is om kolomnamen te consolideren, dan kun je gebruik maken van een conversietabel.
 Deze tabel vertaalt de afwijkende kolomnamen naar de correcte vorm. 
 Je kunt een voorbeeld bekijken van een conversietabel in **L4O5 - Conversion Table.xlsx**.
 In dit excel workbook kun je klein beginnen en de conversies langzaam uitbreiden om alle issues te verhelpen.
@@ -172,7 +172,7 @@ Werk echter ook de overige opdrachten door om de voor- en nadelen te ondervinden
 
 > Je gaat nu de conversietabel opnemen in de getransponeerde tabel om de afwijkende kolomnamen aan te passen.
 
-10. Selecteer op de **Home** tab de transactie **Merge Queries**. Selecteer in de dialoog die opent **Column1** onder **Products Sample** en selecteer in het dropdown menu **Header_Conversion**. Selecteer daaronder vervolgens kolom **Source**. Controleer dat de Join Kind op **Left Outer** staat en klik op OK.
+10. Selecteer op de **Home** tab de transactie **Merge Queries**. Selecteer in de dialoog die opent **Column1** onder **Products Sample** en selecteer in het dropdown menu **Header_Conversion**. Selecteer daaronder vervolgens kolom **Source**. Controleer dat de **Join Kind** op **Left Outer** staat en klik op OK.
 
 > **Header_Conversion** is nu toegevoegd aan de **Product Sample** query met als waarden een tabelobject. 
 
@@ -224,7 +224,7 @@ Een betere methode om kolomnamen in een kolom te zetten en klaar te zetten voor 
 
 > Hoewel deze techniek op grote datasets kan worden toegepast, kan de **Pivot** techniek die gebruikt wordt om de tabel weer terug te draaien veel geheugen kosten. 
 > Power Query moet door de hele dataset gaan om unieke waarden in de kolom **Attribute** te zoeken en daar nieuwe kolommen van maken.
-> Deze methode is daarom niet ideaal als je grote datasets hebt en tabellen wilt combineren op een geoptimaliseerde manier met een korte ververstijd.
+> Deze methode is daarom niet ideaal als je grote datasets hebt en tabellen wilt combineren op een geoptimaliseerde manier met een korte verversingstijd.
 
 ## Opdracht 7 - Transponeren van alleen de kolomnamen
 
@@ -237,7 +237,7 @@ Gebruik deze techniek alleen als de voorgaande technieken vanwege performancepro
 2. Rechtsklik op **Products Sample** in het *Queries* paneel en selecteer **Duplicate**. Selecteer dan op de **Home** tab onder **Keep Rows** de transformatie **Keep Top Rows**. Voer in de dialoog die opent de waarde "1" in en klik op OK.
 
 > De transformaties die je uitvoert op de originele Sample file worden in de query functie uitgevoerd op alle bestanden in de folder. 
-> Dit geldt echter niet voor het het duplicaat. Hiervoor moet je de nieuwe query nog verbinden met de transformatiestappen in de Sample query.
+> Dit geldt echter niet voor het duplicaat. Hiervoor moet je de nieuwe query nog verbinden met de transformatiestappen in de Sample query.
 > Dat doe je aan het einde van deze opdracht.
 
 3. Transponeer de rij naar een kolom en merge de tabel met Header_Conversion.
