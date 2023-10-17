@@ -151,7 +151,7 @@ Werk echter ook de overige opdrachten door om de voor- en nadelen te ondervinden
 
 1. Pak de bestanden uit de zip **L4O5 - Products.zip** uit in de folder "C:\Data\L4\L4O5 - Products\". 
 
-1. Start een nieuw Power BI rapport en lees workbook **L4O5 - Bikes.xlsx** uit **Lab 4** in als Excel workbook (selecteer **Load**).
+1. Start een nieuw Power BI rapport en lees workbook **L4O5 - Conversion Table.xlsx** uit **Lab 4** in als Excel workbook (selecteer **Load**).
 
 1. Rechtsklik op de query en zet **Enable load** uit. Klik nu op **Close & Apply**.
 
