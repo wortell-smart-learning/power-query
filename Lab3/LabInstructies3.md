@@ -16,7 +16,7 @@ In dit derde lab leer je Power Query in te zetten om data samen te voegen.
 
 1. Creëer een nieuwe query **Products** als reference van **Accessories**. 
 
-1. Check dat de nieuwe **Products** query geselecteerd is, open in de **Home** tab het dropdown menu **Append Queries** en kies de transformatie **Append Queries**. Selecteer in de dialoog die opent in het Dropdown menu **L3O1 - Bikes** en klik ok OK.
+1. Check dat de nieuwe **Products** query geselecteerd is, open in de **Home** tab het dropdown menu **Append Queries** en kies de transformatie **Append Queries**. Selecteer in de dialoog die opent in het Dropdown menu **Bikes** en klik ok OK.
 
     > Laten we de M code bekijken die voor de Reference en Append stappen is gegenereerd. 
     > Als je de stap **Source** in het *Applied Steps* paneel bekijkt zie je daar de code `= Accessories`.
