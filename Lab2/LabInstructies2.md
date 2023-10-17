@@ -190,12 +190,12 @@ In deze opdracht willen we de hyperlinks uit een dataset van Facebook posts extr
     > Dit komt doordat de hyperlink zowel scheidingsteken "https://" als "www." bevat. De splitsing resulteerde in drie waarden, maar alleen de eerste twee zijn geladen.
     > De volgende stappen verhelpen dit.
 
-1. Wijzig in de formule van de stap **Split Column by Demiliter** de tekst `{"Hyperlink.1","Hyperlink.2"}` in `3`.
+1. Wijzig in de formule van de stap **Split Column by Delimiter** de tekst `{"Hyperlink.1","Hyperlink.2"}` in `3`.
 
     > Je gebruikt hier het argument 3 in plaats van kolomnamen, maar het resultaat is hetzelfde: kolommen genaamd **Hyperlink.1**,**Hyperlink.2** en **Hyperlink.3**.
     > De hyperlinks staan nu verdeeld over kolommen **Hyperlink.2** en **Hyperlink.3**. Als je ze merged dan kun je de ontbrekende hyperlinks ophalen en de query verbeteren.
 
-1. Check dat de stap **Split Column by Demiliter** geselecteerd is. Selecteer dan kolommen **Hyperlink.2** en **Hyperlink.3** en selecteer op de *Transform* tab **Merge Columns**.
+1. Check dat de stap **Split Column by Delimiter** geselecteerd is. Selecteer dan kolommen **Hyperlink.2** en **Hyperlink.3** en selecteer op de *Transform* tab **Merge Columns**.
 
 1. Klik bij het waarschuwingsbericht dat opent (stappen tussenvoegen kan opvolgende stappen breken) op **Insert**.
 
