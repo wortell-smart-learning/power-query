@@ -11,6 +11,8 @@ De materialen voor deze training zijn [hier](https://github.com/wortell-smart-le
 
 ## Meer informatie
 
-Meer informatie over deze training kun je vinden op:
+Meer informatie over deze training kun je vinden op: [https://www.wortell.nl/nl/smart-learning/power-query](https://www.wortell.nl/nl/smart-learning/power-query)
 
-* [https://www.wortell.nl/nl/smart-learning/power-query](https://www.wortell.nl/nl/smart-learning/power-query)
+Power Query documentatie kun je vinden op: [https://learn.microsoft.com/en-us/power-query/](https://learn.microsoft.com/en-us/power-query/)
+
+Power Query M documentatie (inclusief alle functies) kun je vinden op: [https://learn.microsoft.com/nl-nl/powerquery-m/](https://learn.microsoft.com/nl-nl/powerquery-m/)
