@@ -1,6 +1,6 @@
 Welkom bij de [Wortell Smart Learning](https://www.wortell.nl/nl/smart-learning) training "Power Query"!
 
-De materialen voor deze training zijn [hier](https://github.com/wortell-smart-learning/Power-Query/archive/refs/heads/main.zip) te downloaden.
+De materialen voor deze training zijn [hier](https://github.com/wortell-smart-learning/power-query/archive/refs/heads/main.zip) te downloaden.
 
 ## Table of Contents
 
