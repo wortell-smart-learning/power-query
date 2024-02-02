@@ -18,7 +18,7 @@ In dit tweede lab leer je Power Query in te zetten om basale uitdagingen in data
 
 1. Herhaal stap 3 voor de **Colors** query.
 
-1. Selecteer in de **Products** query de **Product Number** kolom door op de kolomkop te klikken of door onder de **Home** tab onder het dropdown menu **Choose columns** de optie **Go to Column** te selecteren en de kolom **Product Code** te kiezen.
+1. Selecteer in de **Products** query de **Product Number** kolom door op de kolomkop te klikken of door onder de **Home** tab onder het dropdown menu **Choose columns** de optie **Go to Column** te selecteren en de kolom **Product Number** te kiezen.
 
 1. Selecteer onder de **Transform** tab het dropdown menu **Split Column** en selecteer **By Delimiter**. Hetzelfde kun je doen door te rechtsklikken op de kolomkop **Product Number** en vervolgens **Split Column** en **By Delimiter** te kiezen.
 
